@@ -1,0 +1,115 @@
+footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+}
+.footer-menu {
+  text-align: left;
+}
+.footer-menu li {
+  padding-bottom: 0.7em;
+}
+.footer-menu a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: black;
+  -webkit-transition: all 500ms ease-out;
+  -moz-transition: all 500ms ease-out;
+  -ms-transition: all 500ms ease-out;
+  -o-transition: all 500ms ease-out;
+  transition: all 500ms ease-out;
+}
+.footer-menu a:hover {
+  opacity: 0.4;
+  -webkit-transition: all 650ms ease-out;
+  -moz-transition: all 650ms ease-out;
+  -ms-transition: all 650ms ease-out;
+  -o-transition: all 650ms ease-out;
+  transition: all 650ms ease-out;
+}
+.fa-facebook-square,
+.fa-instagram,
+.fa-linkedin {
+  margin-right: 9.5px;
+}
+footer .wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url(../../assets/img/wave.png);
+  background-size: 1000px 100px;
+}
+footer .wave.wave1 {
+  animation: animate 30s linear infinite;
+  z-index: 1000;
+  opacity: 1;
+  animation-delay: 0s;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+}
+footer .wave.wave2 {
+  animation: animate2 15s linear infinite;
+  z-index: 999;
+  opacity: 0.5;
+  animation-delay: -5s;
+  bottom: 10px;
+}
+footer .wave.wave3 {
+  animation: animate3 30s linear infinite;
+  z-index: 998;
+  opacity: 0.3;
+  animation-delay: -2s;
+  bottom: 15px;
+}
+footer .wave.wave4 {
+  animation: animate4 5s linear infinite;
+  z-index: 997;
+  opacity: 0.7;
+  animation-delay: -5s;
+  bottom: 20px;
+}
+@keyframes animate {
+  0%
+  {
+    background-position-x: 0;
+  }
+  100%
+  {
+    background-position-x: 1000px;
+  }
+}
+@keyframes animate2 {
+  0%
+  {
+    background-position-x: 0;
+  }
+  100%
+  {
+    background-position-x: -1000px;
+  }
+}
+@keyframes animate3 {
+  0%
+  {
+    background-position-x: 0;
+  }
+  100%
+  {
+    background-position-x: -1000px;
+  }
+}
+@keyframes animate4 {
+  0%
+  {
+    background-position-x: 0;
+  }
+  100%
+  {
+    background-position-x: -1000px;
+  }
+}
