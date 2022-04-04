@@ -113,3 +113,7 @@ footer .wave.wave4 {
     background-position-x: -1000px;
   }
 }
+.copyright {
+  font-size: 0.8em;
+  padding: 15px 0;
+}

@@ -1,0 +1,37 @@
+<nav>
+  <div class="navigation-wrapper">
+    <div class="container">
+      <ul>
+        <li class="logo"><a href="index.html">DobrevInc.</a></li>
+        <li><a href="introduction.html">home</a></li>
+        <li><a href="billing.html">about</a></li>
+        <li><a href="about.html">contacts</a></li>
+        <li><a href="contacts.html">pricing</a></li>
+
+        <li>
+          <div class="logged" *ngIf="!userService.isLogged">
+            <a href="#" (click)="loginHandler()">Login</a>
+            <a href="">register</a>
+          </div>
+        </li>
+
+        <li>
+          <div class="loggedOut" *ngIf="userService.isLogged">
+            <a href="">Deyan</a>
+            <a href="" (click)="logOutHandler()">Logout</a>
+          </div>
+        </li>
+
+        <!-- <div class="logged" *ngIf="!userService.isLogged">
+          <li><a href="#" (click)="loginHandler()">Login</a></li>
+          <li><a href="">register</a></li>
+        </div>
+
+        <div class="loggedOut" *ngIf="userService.isLogged">
+          <li><a href="">Deyan</a></li>
+          <li><a href="" (click)="logOutHandler()">Logout</a></li>
+        </div> -->
+      </ul>
+    </div>
+  </div>
+</nav>

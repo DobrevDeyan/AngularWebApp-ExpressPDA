@@ -4,21 +4,25 @@
 @import "assets/css/layout.css";
 @import "assets/css/responsive.css";
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
-
- html{
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+html {
+  /* background-color: gray; */
   background: url("./assets/img/terminal.png") no-repeat center center fixed;
   height: 100vh;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Old versions of Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
 }
 
 .container {
@@ -27,7 +31,7 @@
 
 body {
   font-size: 1em;
-  font-family: 'Big Shoulders Text', cursive;
+  font-family: "Big Shoulders Text", cursive;
   color: black;
   margin: 0 auto;
   text-align: center;
@@ -44,11 +48,10 @@ h2 {
   margin-bottom: 3em;
   font-size: 1.75em;
 }
-h1, h2 {
+h1,
+h2 {
   color: white;
   text-align: left;
-  font-family: 'Big Shoulders Text', cursive;
+  font-family: "Big Shoulders Text", cursive;
   letter-spacing: -0.5px;
 }
-
-

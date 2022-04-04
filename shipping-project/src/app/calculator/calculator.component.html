@@ -1,24 +1,244 @@
-<main>
+<main class="main-intro">
   <div class="container">
-    <h1>Port Varna PDA Calculator<br>Proforma disbursement account</h1>
-    <h2>Voyage estimates at your fingertips. Easy to use, 24/7 online tool <br>which
-      provides port costs and restrictions for major facilities in Varna port.</h2>
-    <div id="choose-port">
-      <a href="">
-        <span>choose a port</span>
+    <p>
+      Please follow the below input fields and provide exact particulars basis
+      ship`s valid certificates
+    </p>
+    <div class="form-wrapper">
+      <form class="left">
+        <fieldset>
+          <legend>vesseltype</legend>
+          <select id="vesselype" name="vessel-type">
+            <option value="Other" id="other">Other</option>
+            <option value="Tanker" id="tanker">Tanker</option>
+            <option value="Container" id="container">Container</option>
+            <option value="Passenger" id="passenger">Passenger</option>
+            <option value="Docking-repairs" id="docking-repairs">
+              Docking
+            </option>
+            <option value="Navy" id="navy">Navy</option>
+          </select>
+        </fieldset>
+        <fieldset>
+          <legend>operations</legend>
+          <select id="operations" name="operations">
+            <option value="Other">Other</option>
+            <option value="Loading" id="loading">Loading</option>
+            <option value="Discharging" id="discharging">Discharging</option>
+          </select>
+        </fieldset>
+        <fieldset>
+          <legend>special state</legend>
+          <select id="conditions" name="conditions">
+            <option value="Other">Other</option>
+            <option value="DG cargo inward" id="dg-cargo-in">
+              DG cargo inward
+            </option>
+            <option value="DG cargo outward" id="dg-cargo-out">
+              DG cargo outward
+            </option>
+            <option value="DG cargo in/out" id="dg-cargo-in-out">
+              DG cargo in/out
+            </option>
+            <option value="Overtime" id="overtime">Overtime</option>
+            <option value="Discharging" id="discharging">Discharging</option>
+          </select>
+        </fieldset>
+      </form>
+      <form class="right">
+        <label>GT/RGT</label>
+        <input
+          type="number"
+          id="gross_tonnage"
+          onfocus="this.value=''"
+          value="10000"
+        />
+        <label>LOA</label>
+        <input
+          type="number"
+          id="length_over_all"
+          onfocus="this.value=''"
+          value="100"
+        />
+        <label>HRS AT BERTH</label>
+        <input
+          type="number"
+          id="hours_at_berth"
+          onfocus="this.value=''"
+          value="10"
+        />
+      </form>
+    </div>
+    <!-- <button (click)="generateProforma()" class="button-style">
+      <a href="" title="Generate PDA">
+        <span>Generate PDA</span>
         <div class="wave5"></div>
       </a>
-    </div>
-<!--    <div id="ports-menu">-->
-<!--      <ul>-->
-<!--        <li class="active"><a href="#">Varna East</a></li>-->
-<!--        <li><a href="#">Varna West</a></li>-->
-<!--        <li><a href="#">MAE JSC Varna</a></li>-->
-<!--        &lt;!&ndash; <li><a href="#">TEC Varna</a></li> FOR FUTURE IMPLEMENTATION  &ndash;&gt;-->
-<!--        <li><a href="#">Lesport</a></li>-->
-<!--        <li><a href="#">Ship Repair Yards</a></li>-->
-<!--        <li id="slide"></li>-->
-<!--      </ul>-->
-<!--    </div>-->
+    </button> -->
+
+    <input
+      class="caclbutton"
+      type="button"
+      value="Calculate"
+      onclick="generateProforma()"
+    />
   </div>
 </main>
+<div class="container">
+  <div class="table-wrapper">
+    <table>
+      <tbody>
+        <tr>
+          <td colspan="2">varna east</td>
+        </tr>
+        <tr>
+          <th scope="col">services</th>
+          <th scope="col">price in eur</th>
+        </tr>
+        <tr>
+          <td>tonnage dues</td>
+          <td id="ve-result-tonnage-dues"></td>
+        </tr>
+        <tr>
+          <td>berth dues</td>
+          <td id="ve-result-berth-dues"></td>
+        </tr>
+        <tr>
+          <td>pilotage In</td>
+          <td id="ve-result-pilotage-in"></td>
+        </tr>
+        <tr>
+          <td>pilotage out</td>
+          <td id="ve-result-pilotage-out"></td>
+        </tr>
+        <tr>
+          <td>towage in</td>
+          <td id="ve-result-towage-in"></td>
+        </tr>
+        <tr>
+          <td>towage out</td>
+          <td id="ve-result-towage-out"></td>
+        </tr>
+        <tr>
+          <td>mooring</td>
+          <td id="ve-result-mooring"></td>
+        </tr>
+        <tr>
+          <td>unmooring</td>
+          <td id="ve-result-unmooring"></td>
+        </tr>
+        <tr>
+          <td>channel dues</td>
+          <td id="ve-result-channel-dues"></td>
+        </tr>
+        <tr>
+          <td>light dues</td>
+          <td id="ve-result-light-dues"></td>
+        </tr>
+        <tr>
+          <td>sailing permission</td>
+          <td id="ve-result-sailing-permission"></td>
+        </tr>
+        <tr>
+          <td>marpol 73/78 fee</td>
+          <td id="ve-result-marpol-fee"></td>
+        </tr>
+        <tr class="cargo-verification">
+          <td>cargo plan verification</td>
+          <td id="ve-cargo-plan-verification"></td>
+        </tr>
+        <tr class="vessel-tanker">
+          <td>laying of oil booms</td>
+          <td id="ve-oilbooming"></td>
+        </tr>
+        <tr>
+          <td>total:</td>
+          <td id="ve-result-total-cost"></td>
+        </tr>
+      </tbody>
+    </table>
+    <table>
+      <tbody>
+        <tr>
+          <td colspan="2">varna west</td>
+        </tr>
+        <tr>
+          <th scope="col">services</th>
+          <th scope="col">price in eur</th>
+        </tr>
+        <tr>
+          <td>tonnage dues</td>
+          <td id="vw-result-tonnage-dues"></td>
+        </tr>
+        <tr>
+          <td>berth dues</td>
+          <td id="vw-result-berth-dues"></td>
+        </tr>
+        <tr>
+          <td>pilotage In</td>
+          <td id="vw-result-pilotage-in"></td>
+        </tr>
+        <tr>
+          <td>pilotage out</td>
+          <td id="vw-result-pilotage-out"></td>
+        </tr>
+        <tr>
+          <td>towage in</td>
+          <td id="vw-result-towage-in"></td>
+        </tr>
+        <tr>
+          <td>towage out</td>
+          <td id="vw-result-towage-out"></td>
+        </tr>
+        <tr>
+          <td>mooring</td>
+          <td id="vw-result-mooring"></td>
+        </tr>
+        <tr>
+          <td>unmooring</td>
+          <td id="vw-result-unmooring"></td>
+        </tr>
+        <tr>
+          <td>channel dues</td>
+          <td id="vw-result-channel-dues"></td>
+        </tr>
+        <tr>
+          <td>light dues</td>
+          <td id="vw-result-light-dues"></td>
+        </tr>
+        <tr>
+          <td>sailing permission</td>
+          <td id="vw-result-sailing-permission"></td>
+        </tr>
+        <tr>
+          <td>marpol 73/78 fee</td>
+          <td id="vw-result-marpol-fee"></td>
+        </tr>
+        <tr class="cargo-verification">
+          <td>cargo plan verification</td>
+          <td id="vw-cargo-plan-verification"></td>
+        </tr>
+        <tr class="vessel-tanker">
+          <td>laying of oil booms</td>
+          <td id="vw-oilbooming"></td>
+        </tr>
+        <tr>
+          <td>total:</td>
+          <td id="vw-result-total-cost"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="useful-info">
+      <p>
+        Dear Customers, Kindly be guided that the provided expenses are up to
+        date with currently in force tariffs from local providers.<br />
+        Basis the type of operation, cargo and taking into account local
+        compliances, the provided values can be subject to change. For more
+        information about specific inquiries, do not hesitate to
+        <a href="contact_us.html">contact us</a>.
+      </p>
+    </div>
+    <hr />
+  </div>
+</div>

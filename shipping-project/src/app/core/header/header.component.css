@@ -1,8 +1,8 @@
 .navigation-wrapper {
   background: rgba(0, 0, 0, 0.5);
   height: 4em;
-  overflow: hidden;
-  position: fixed; /* Set the navbar to fixed position */
+  /*overflow: hidden;*/
+  position: fixed; /*  Set the navbar to fixed position */
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
 }
@@ -21,11 +21,12 @@ nav ul li a {
   text-decoration: none;
   color: white;
   background: linear-gradient(
-    to right,
-    var(--mainColor) 0%,
-    var(--mainColor) 0px,
-    transparent 0px
-  ) repeat-x;
+      to right,
+      var(--mainColor) 0%,
+      var(--mainColor) 0px,
+      transparent 0px
+    )
+    repeat-x;
   background-size: 100%;
 
   -webkit-transition: all 500ms ease-out;
@@ -35,13 +36,12 @@ nav ul li a {
   transition: all 500ms ease-out;
 }
 nav ul li a:hover {
-  background:
-    linear-gradient(
-      to right,
-      var(--mainColor) 0%,
-      var(--mainColor) 5px,
-      transparent
-    );
+  background: linear-gradient(
+    to right,
+    var(--mainColor) 0%,
+    var(--mainColor) 5px,
+    transparent
+  );
   color: black;
   padding-left: 4px;
   -webkit-transition: all 650ms ease-out;
@@ -50,10 +50,10 @@ nav ul li a:hover {
   -o-transition: all 650ms ease-out;
   transition: all 650ms ease-out;
 }
-nav ul li:first-child {
+nav ul .logo {
   margin-right: auto;
   margin-left: 0;
-  margin-top: 1.20em;
+  margin-top: 1.2em;
   border: 2px solid #fff;
   padding: 2px 5px;
 }
