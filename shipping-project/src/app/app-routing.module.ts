@@ -1,5 +1,5 @@
 import { RouterModule, Routes } from '@angular/router';
-import { IntroComponent } from './core/intro/intro.component';
+import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
   {
@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: IntroComponent,
+    component: HomeComponent,
   },
 ];
 
