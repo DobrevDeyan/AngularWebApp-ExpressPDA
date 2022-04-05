@@ -118,7 +118,7 @@ label {
   left: 0;
   width: 100%;
   height: 22px;
-  background: url(../../assets/img/wave2.png);
+  background: url(../../../assets/img/wave2.png);
   animation: animate 1.5s linear infinite;
 }
 @keyframes animate {
@@ -163,6 +163,10 @@ td[colspan="2"] {
 th[scope="col"] {
   background-color: black;
   color: white;
+}
+
+.useful-info {
+  margin-top: 20px;
 }
 
 .useful-info p {
