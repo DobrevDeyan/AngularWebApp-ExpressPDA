@@ -8,6 +8,8 @@ footer {
 
 .footer-menu {
   text-align: left;
+  display: flex;
+  flex-direction: column;
 }
 .footer-menu li {
   padding-bottom: 0.7em;
@@ -109,4 +111,12 @@ footer .wave.wave4 {
 .copyright {
   font-size: 0.8em;
   padding: 15px 0;
+}
+
+.footer-menu .copyright:hover {
+  opacity: 1;
+}
+
+.copy {
+  font-size: 1.3em;
 }

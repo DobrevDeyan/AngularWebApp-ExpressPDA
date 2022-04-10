@@ -6,10 +6,12 @@ import { UserService } from '../../services/user.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent implements OnInit {
-  constructor(public userService: UserService) {}
+export class HeaderComponent {
+  get isLogged(): boolean {
+    return this.userService.isLogged;
+  }
 
-  ngOnInit() {}
+  constructor(public userService: UserService) {}
 
   loginHandler(): void {
     this.userService.login();

@@ -1,22 +1,9 @@
-// Table cells appending
-
-// $("#operations").change(function () {
-//   if ($("#operations").val() === "Loading") {
-//     $(".cargo-verification").css("display", "table-row");
-//   } else if ($("#operations").val() === "Other") {
-//     $(".cargo-verification").css("display", "none");
-//   }
-// });
-
-// $("#vesseltype").change(function () {
-//   if ($("#vesseltype").val() === "Tanker") {
-//     $(".vessel-tanker").css("display", "table-row");
-//   } else if ($("#vesseltype").val() === "Other") {
-//     $(".vessel-tanker").css("display", "none");
-//   }
-// });
-
 // ========================== VARNA EAST/WEST TABLE FUNCTION ========================= //
+
+// setTimeout(() => {
+//   element.classList.toggle('active');
+// }, 500);
+
 function generateProforma() {
   let grossTonnage = document.getElementById("gross_tonnage").value;
   let lengthOverAll = document.getElementById("length_over_all").value;
@@ -51,7 +38,7 @@ function generateProforma() {
   );
   let resultVeMarpolFee = document.getElementById("ve-result-marpol-fee");
   let resultVeCargoPlan = document.getElementById("ve-cargo-plan-verification");
-  let resultVeBooming = document.getElementById("ve-oilbooming");
+  // let resultVeBooming = document.getElementById("ve-oilbooming");
   let resultVeTotalCost = document.getElementById("ve-result-total-cost");
 
   // ===============  Validation for input fields ================= //
@@ -1493,7 +1480,8 @@ function generateProforma() {
   resultVeSailingPermission.innerHTML = resultVeNumberSailingPermission;
   resultVeMarpolFee.innerHTML = resultVeNumberMarpolFee;
   resultVeCargoPlan.innerHTML = resultVeNumberCargoPlan;
-  resultVeBooming.innerHTML = resultVeNumberBooming;
+  // resultVeBooming.innerHTML = resultVeNumberBooming;
+
   resultVeTotalCost.innerHTML = Math.round(
     resultVeNumberTonnageDues +
       resultVeNumberBerthDues +
@@ -1527,7 +1515,7 @@ function generateProforma() {
   );
   let resultVwMarpolFee = document.getElementById("vw-result-marpol-fee");
   let resultVwCargoPlan = document.getElementById("vw-cargo-plan-verification");
-  let resultVwBooming = document.getElementById("vw-oilbooming");
+  // let resultVwBooming = document.getElementById("vw-oilbooming");
   let resultVwTotalCost = document.getElementById("vw-result-total-cost");
 
   // =============== Tonnage dues ================= //
@@ -2949,9 +2937,9 @@ function generateProforma() {
   }
   // =============== Booming dues ================= //
 
-  resultVwNumberBooming = Math.round(
-    100 + lengthOverAll * 2.5 * 0.15 * hoursAtBerth
-  );
+  // resultVwNumberBooming = Math.round(
+  //   100 + lengthOverAll * 2.5 * 0.15 * hoursAtBerth
+  // );
 
   // =============== Final calculations Varna West ================= //
 
@@ -2968,7 +2956,7 @@ function generateProforma() {
   resultVwSailingPermission.innerHTML = resultVwNumberSailingPermission;
   resultVwMarpolFee.innerHTML = resultVwNumberMarpolFee;
   resultVwCargoPlan.innerHTML = resultVwNumberCargoPlan;
-  resultVwBooming.innerHTML = resultVwNumberBooming;
+  // resultVwBooming.innerHTML = resultVwNumberBooming;
   resultVwTotalCost.innerHTML =
     resultVwNumberTonnageDues +
     resultVwNumberBerthDues +

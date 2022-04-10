@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PdaSummaryComponent } from './pda-summary/pda-summary.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    PdaSummaryComponent
+  ],
   imports: [
     CommonModule
   ]
