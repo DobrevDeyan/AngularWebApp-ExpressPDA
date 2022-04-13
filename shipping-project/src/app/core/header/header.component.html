@@ -3,22 +3,23 @@
     <div class="container">
       <ul>
         <li class="logo"><a href="index.html">DobrevInc.</a></li>
-        <li><a href="introduction.html">home</a></li>
-        <li><a href="billing.html">about</a></li>
-        <li><a href="about.html">contacts</a></li>
-        <li><a href="contacts.html">pricing</a></li>
+        <li><a routerLink="/home">home</a></li>
+        <li><a routerLink="/about">about</a></li>
+        <li><a routerLink="/contacts">contacts</a></li>
+        <li><a routerLink="/pricing">pricing</a></li>
         <li class="logged" *ngIf="!isLogged">
-          <a (click)="loginHandler()">Login</a>
+          <a routerLink="/login" (click)="loginHandler()">Login</a>
         </li>
         <li class="logged" *ngIf="!isLogged">
-          <a>register</a>
+          <a routerLink="/register">register</a>
         </li>
 
+        <!-- routing to be done below -->
         <li class="loggedOut" *ngIf="isLogged">
-          <a>Deyan</a>
+          <a routerLink="/profile">Deyan's Profile</a>
         </li>
         <li class="loggedOut" *ngIf="isLogged">
-          <a (click)="logOutHandler()">Logout</a>
+          <a routerLink="/logout" (click)="logOutHandler()">Logout</a>
         </li>
       </ul>
     </div>

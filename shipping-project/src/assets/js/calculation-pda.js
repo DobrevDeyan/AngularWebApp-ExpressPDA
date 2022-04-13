@@ -1,10 +1,20 @@
 // ========================== VARNA EAST/WEST TABLE FUNCTION ========================= //
 
-// setTimeout(() => {
-//   element.classList.toggle('active');
-// }, 500);
-
 function generateProforma() {
+  if (
+    $(".input1").val() === "" ||
+    $(".input2").val() === "" ||
+    $(".input3").val() === ""
+  ) {
+    setTimeout(() => {
+      alert("You need to provide the required vessel particulars.");
+    }, 300);
+  } else {
+    calculateProforma();
+  }
+}
+
+function calculateProforma() {
   let grossTonnage = document.getElementById("gross_tonnage").value;
   let lengthOverAll = document.getElementById("length_over_all").value;
   let hoursAtBerth = document.getElementById("hours_at_berth").value;
@@ -14,12 +24,27 @@ function generateProforma() {
   let docking = document.getElementById("docking-repairs");
   let navy = document.getElementById("navy");
   let loading = document.getElementById("loading");
-  // let discharging = document.getElementById("discharging");
+  // let discharging = document.getElementById("discharging"); feature/variable not used currently
   let other = document.getElementById("other");
   let dgCargoIn = document.getElementById("dg-cargo-in");
   let dgCargoOut = document.getElementById("dg-cargo-out");
   let dgCargoInOut = document.getElementById("dg-cargo-in-out");
   let overtime = document.getElementById("overtime");
+
+  if ($(loading).is(":selected")) {
+    $(".cargo-verification").css("display", "table-row");
+  }
+
+  if ($(tanker).is(":selected")) {
+    $(".vessel-tanker").css("display", "table-row");
+  }
+
+  $("table tr").hide();
+  $("table tr").each(function (index) {
+    $(this)
+      .delay(index * 100)
+      .show(1000);
+  });
 
   // ============================== VARNA EAST TABLE ============================== //
 
@@ -38,7 +63,7 @@ function generateProforma() {
   );
   let resultVeMarpolFee = document.getElementById("ve-result-marpol-fee");
   let resultVeCargoPlan = document.getElementById("ve-cargo-plan-verification");
-  // let resultVeBooming = document.getElementById("ve-oilbooming");
+  let resultVeBooming = document.getElementById("ve-oilbooming");
   let resultVeTotalCost = document.getElementById("ve-result-total-cost");
 
   // ===============  Validation for input fields ================= //
@@ -1463,7 +1488,9 @@ function generateProforma() {
 
   // =============== Booming dues ================= //
 
-  // resultVeNumberBooming = Math.round(100 + (lengthOverAll * 2.5 * 0.15 * hoursAtBerth));
+  resultVeNumberBooming = Math.round(
+    100 + lengthOverAll * 2.5 * 0.15 * hoursAtBerth
+  );
 
   // =============== Final calculations Varna East ================= //
 
@@ -1480,7 +1507,7 @@ function generateProforma() {
   resultVeSailingPermission.innerHTML = resultVeNumberSailingPermission;
   resultVeMarpolFee.innerHTML = resultVeNumberMarpolFee;
   resultVeCargoPlan.innerHTML = resultVeNumberCargoPlan;
-  // resultVeBooming.innerHTML = resultVeNumberBooming;
+  resultVeBooming.innerHTML = resultVeNumberBooming;
 
   resultVeTotalCost.innerHTML = Math.round(
     resultVeNumberTonnageDues +
@@ -1515,7 +1542,7 @@ function generateProforma() {
   );
   let resultVwMarpolFee = document.getElementById("vw-result-marpol-fee");
   let resultVwCargoPlan = document.getElementById("vw-cargo-plan-verification");
-  // let resultVwBooming = document.getElementById("vw-oilbooming");
+  let resultVwBooming = document.getElementById("vw-oilbooming");
   let resultVwTotalCost = document.getElementById("vw-result-total-cost");
 
   // =============== Tonnage dues ================= //
@@ -2937,9 +2964,9 @@ function generateProforma() {
   }
   // =============== Booming dues ================= //
 
-  // resultVwNumberBooming = Math.round(
-  //   100 + lengthOverAll * 2.5 * 0.15 * hoursAtBerth
-  // );
+  resultVwNumberBooming = Math.round(
+    100 + lengthOverAll * 2.5 * 0.15 * hoursAtBerth
+  );
 
   // =============== Final calculations Varna West ================= //
 
@@ -2956,7 +2983,7 @@ function generateProforma() {
   resultVwSailingPermission.innerHTML = resultVwNumberSailingPermission;
   resultVwMarpolFee.innerHTML = resultVwNumberMarpolFee;
   resultVwCargoPlan.innerHTML = resultVwNumberCargoPlan;
-  // resultVwBooming.innerHTML = resultVwNumberBooming;
+  resultVwBooming.innerHTML = resultVwNumberBooming;
   resultVwTotalCost.innerHTML =
     resultVwNumberTonnageDues +
     resultVwNumberBerthDues +

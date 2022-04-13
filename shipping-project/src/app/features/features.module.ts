@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PdaSummaryComponent } from './pda-summary/pda-summary.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -9,7 +10,7 @@ import { PdaSummaryComponent } from './pda-summary/pda-summary.component';
     PdaSummaryComponent
   ],
   imports: [
-    CommonModule
+    CommonModule, RouterModule
   ]
 })
 export class FeaturesModule { }

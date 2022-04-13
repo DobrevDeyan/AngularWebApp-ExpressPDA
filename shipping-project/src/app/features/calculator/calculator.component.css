@@ -123,24 +123,23 @@ main > div > p.reset {
   font-size: 1em;
 }
 
-/* GENERAL TABLE */
-/* tr:not(:first-child) {
-  opacity: 0;
-  animation-name: fadeIn;
-  animation-duration: 6s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
+.resetButton {
+  display: block;
+  margin-left: 370px;
+  margin-top: 20px;
+  padding: 8px 20px;
+  box-shadow: 0 0 0 5px #fff;
+  border-radius: 15px;
+  text-transform: uppercase;
+  font-size: 20px;
+  letter-spacing: 0;
+  color: white;
+  background-color: black;
+  text-decoration: none;
+  overflow: hidden;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-} */
+/* GENERAL TABLE */
 
 .table-wrapper {
   display: flex;
@@ -168,10 +167,6 @@ th {
   text-transform: uppercase;
 }
 
-/* tbody:first-child {
-  font-size: 1.4em;
-} */
-
 td[colspan="2"] {
   background-color: black;
   color: white;
@@ -181,6 +176,14 @@ td[colspan="2"] {
 th[scope="col"] {
   background-color: black;
   color: white;
+}
+
+.cargo-verification {
+  display: none;
+}
+
+.vessel-tanker {
+  display: none;
 }
 
 .useful-info {
