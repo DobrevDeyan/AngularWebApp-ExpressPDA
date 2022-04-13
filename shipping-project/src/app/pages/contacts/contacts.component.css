@@ -1,0 +1,29 @@
+.contact-box {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  margin: 3em 0;
+}
+
+.contact-info {
+  text-align: left;
+}
+
+.contact-info p:first-child {
+  margin-top: 0;
+}
+
+.contact-info p {
+  margin-bottom: 50px;
+}
+
+.mapouter {
+  height: 500px;
+  width: 700px;
+}
+
+.gmap_canvas {
+  background: none !important;
+  height: 500px;
+  width: 700px;
+}
