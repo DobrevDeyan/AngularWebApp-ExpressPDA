@@ -1,20 +1,25 @@
 .contact-box {
   display: flex;
-  justify-content: space-around;
-  flex-direction: column;
-  margin: 3em 0;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 60px;
 }
 
 .contact-info {
   text-align: left;
+  color: white;
+  padding: 0px;
 }
 
 .contact-info p:first-child {
   margin-top: 0;
+  font-size: 1.4em;
 }
 
 .contact-info p {
-  margin-bottom: 50px;
+  margin-bottom: 40px;
+  font-size: 1.1em;
 }
 
 .mapouter {

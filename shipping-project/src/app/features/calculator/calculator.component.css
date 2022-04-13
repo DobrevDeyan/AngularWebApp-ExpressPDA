@@ -123,9 +123,13 @@ main > div > p.reset {
   font-size: 1em;
 }
 
+.info-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
 .resetButton {
-  display: block;
-  margin-left: 370px;
   margin-top: 20px;
   padding: 8px 20px;
   box-shadow: 0 0 0 5px #fff;

@@ -9,6 +9,8 @@ import { PricingComponent } from './pages/pricing/pricing.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { ProfilePageComponent } from './authentication/profile-page/profile-page.component';
 import { RegisterFormComponent } from './authentication/register-form/register-form.component';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
   {
@@ -34,6 +36,7 @@ const routes: Routes = [
   {
     path: 'calculator',
     component: CalculatorComponent,
+    // canActivate: [AuthGuard],
   },
   {
     path: 'login',
@@ -45,11 +48,16 @@ const routes: Routes = [
   },
   {
     path: 'profile',
+    // canActivate: [AuthGuard],
     component: ProfilePageComponent,
   },
   {
     path: 'logout',
     component: WelcomeComponent,
+  },
+  {
+    path: '**',
+    component: ErrorPageComponent,
   },
 ];
 
