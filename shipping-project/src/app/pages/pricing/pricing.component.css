@@ -17,13 +17,13 @@
   margin: 40px auto;
   padding: 40px 20px;
   border-radius: 15px;
-  box-shadow: 0 7px 12px rgba(0, 0, 0, .5);
-  transition: .5s;
+  box-shadow: 0 7px 12px rgba(0, 0, 0, 0.5);
+  transition: 0.5s;
   overflow: hidden;
 }
 
 .card:before {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -42,7 +42,7 @@
   border-radius: 50%;
   text-align: center;
   line-height: 100px;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, .1)
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
 }
 
 .title h2 {
@@ -94,7 +94,7 @@
   font-size: 16px;
   cursor: pointer;
   text-decoration: none;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, .1)
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .card:hover {
