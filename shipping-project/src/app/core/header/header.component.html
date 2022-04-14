@@ -7,19 +7,17 @@
         <li><a routerLink="/about">about</a></li>
         <li><a routerLink="/contacts">contacts</a></li>
         <li><a routerLink="/pricing">pricing</a></li>
-        <li class="logged" *ngIf="!isLogged">
-          <a routerLink="/login" (click)="loginHandler()">Login</a>
+        <li class="logged" *ngIf="!isLoggedIn">
+          <a routerLink="/login">Login</a>
         </li>
-        <li class="logged" *ngIf="!isLogged">
+        <li class="logged" *ngIf="!isLoggedIn">
           <a routerLink="/register">register</a>
         </li>
-
-        <!-- routing to be done below -->
-        <li class="loggedOut" *ngIf="isLogged">
-          <a routerLink="/profile">Deyan's Profile</a>
+        <li *ngIf="isLoggedIn">
+          <a routerLink="/profile">User Profile</a>
         </li>
-        <li class="loggedOut" *ngIf="isLogged">
-          <a routerLink="/logout" (click)="logOutHandler()">Logout</a>
+        <li *ngIf="isLoggedIn">
+          <a routerLink="/logout" (click)="authService.SignOut()">Log out</a>
         </li>
       </ul>
     </div>

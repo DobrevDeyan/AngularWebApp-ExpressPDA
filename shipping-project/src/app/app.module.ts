@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
@@ -15,6 +14,14 @@ import { FeaturesModule } from './features/features.module';
 import { PagesModule } from './pages/pages.module';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './pages/home/home.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { environment } from '../environments/environment';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -32,8 +39,22 @@ import { HomeComponent } from './pages/home/home.component';
     FeaturesModule,
     PagesModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp({
+      apiKey: 'AIzaSyBpVYH05GktTW5LiKkvlMU_aebaSE1S_JE',
+      authDomain: 'shippingproject-b6ee3.firebaseapp.com',
+      projectId: 'shippingproject-b6ee3',
+      storageBucket: 'shippingproject-b6ee3.appspot.com',
+      messagingSenderId: '182574825890',
+      appId: '1:182574825890:web:941d18481b92586f7a72fb',
+      measurementId: 'G-HKW9V1N79Q',
+    }),
   ],
-  providers: [UserService],
+  providers: [UserService, AuthService],
   bootstrap: [AppComponent, HeaderComponent, FooterComponent],
 })
 export class AppModule {}

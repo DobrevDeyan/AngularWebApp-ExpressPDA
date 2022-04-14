@@ -38,12 +38,16 @@ ul, ol {
 
 blockquote,
 h1,
-h2,
+h2 {
+  font-family: "BigShouldersText", serif;
+}
+
 h3,
 h4,
 h5,
 h6 {
-  font-family: Georgia, serif;
+  font-family: "Poppins", sans-serif;
+  /* font-family: 'Rock Salt', cursive; */
 }
 
 h1,

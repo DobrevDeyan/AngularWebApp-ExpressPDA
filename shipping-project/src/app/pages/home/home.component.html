@@ -7,7 +7,7 @@
       Varna port.
     </h2>
     <div class="wrapper">
-      <button (click)="myFunction()" class="button-style">
+      <button *ngIf="isLoggedIn" class="button-style">
         <a routerLink="/calculator" title="Generate PDA">
           <span>PDA ESTIMATION DEMO</span>
           <div class="wave5"></div>

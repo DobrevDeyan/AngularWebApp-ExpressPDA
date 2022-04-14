@@ -8,7 +8,6 @@ import { AboutComponent } from './pages/about/about.component';
 import { PricingComponent } from './pages/pricing/pricing.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { ProfilePageComponent } from './authentication/profile-page/profile-page.component';
-import { RegisterFormComponent } from './authentication/register-form/register-form.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { AuthGuard } from './services/auth.guard';
 
@@ -36,7 +35,7 @@ const routes: Routes = [
   {
     path: 'calculator',
     component: CalculatorComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'login',
@@ -44,11 +43,11 @@ const routes: Routes = [
   },
   {
     path: 'register',
-    component: RegisterFormComponent,
+    component: LoginFormComponent,
   },
   {
     path: 'profile',
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     component: ProfilePageComponent,
   },
   {
@@ -66,5 +65,3 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
-
-// export const AppRoutingModule = RouterModule.forRoot(routes);

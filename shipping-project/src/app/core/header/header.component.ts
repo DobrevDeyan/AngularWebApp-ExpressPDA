@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../services/user.service';
-
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -8,17 +7,17 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  get isLogged(): boolean {
-    return this.userService.isLogged;
+  get isLoggedIn(): boolean {
+    return this.authService.isLoggedIn;
   }
 
-  constructor(public userService: UserService) {}
+  constructor(public authService: AuthService) {}
 
-  loginHandler(): void {
-    this.userService.login();
-  }
+  // loginHandler(): void {
+  //   this.userService.login();
+  // }
 
-  logOutHandler(): void {
-    this.userService.logout();
-  }
+  // logOutHandler(): void {
+  //   this.userService.logout();
+  // }
 }

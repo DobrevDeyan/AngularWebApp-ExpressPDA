@@ -1,49 +1,87 @@
-<!-- homepage -->
+<div class="container">
+  <div class="loggin-wrapper">
+    <div class="container-2">
+      <div class="blueBg">
+        <div class="box signin">
+          <h3>Already have an Account ?</h3>
+          <button class="signinBtn">Sign in</button>
+        </div>
+        <div class="box signup">
+          <h3>Don't have an Account ?</h3>
+          <button class="signupBtn">Sign up</button>
+        </div>
+      </div>
+      <div class="formBx">
+        <div class="form signinForm">
+          <form>
+            <h3>Sign In</h3>
+            <input
+              type="text"
+              class="formControl"
+              placeholder="Username"
+              #userName
+              required
+            />
+            <input
+              type="password"
+              class="formControl"
+              placeholder="Password"
+              #userPassword
+              required
+            />
+            <input
+              type="button"
+              class="btn btnPrimary"
+              value="Log in"
+              (click)="authService.SignIn(userName.value, userPassword.value)"
+            />
+            <button
+              type="button"
+              class="btn googleBtn"
+              (click)="authService.GoogleAuth()"
+            >
+              <i class="fab fa-google-plus-g"></i>
+              Continue with Google
+            </button>
+          </form>
+        </div>
 
-<form class="login" action="" method="post">
-  <fieldset>
-    <h2>Login Form</h2>
-
-    <p class="field field-icon">
-      <label for="email"
-        ><span><i class="fas fa-envelope"></i></span
-      ></label>
-      <input
-        class="input-error"
-        type="email"
-        name="email"
-        id="email"
-        placeholder="john.doe@gmail.com"
-      />
-    </p>
-    <p class="error">Email is required!</p>
-    <!-- <p class="error">
-                    Email is not valid!
-                </p> -->
-
-    <p class="field field-icon">
-      <label for="password"
-        ><span><i class="fas fa-lock"></i></span
-      ></label>
-      <input
-        type="password"
-        name="password"
-        id="password"
-        placeholder="******"
-      />
-    </p>
-    <!-- <p class="error">
-                    Password is required!
-                </p>
-                <p class="error">
-                    Password must be at least 4 characters!
-                </p> -->
-
-    <button disabled>Login</button>
-
-    <p class="text-center">
-      Have an account?
-      <a href="#">Register</a>
-    </p>
-  </fieldset>
-</form>
+        <div class="form signupForm">
+          <form>
+            <h3>Sign Up</h3>
+            <input
+              type="email"
+              class="formControl"
+              placeholder="Email Address"
+              #userEmail
+              required
+            />
+            <input
+              type="password"
+              class="formControl"
+              placeholder="Password"
+              #userPwd
+              required
+            />
+            <input type="password" placeholder="Confirm Password" required />
+            <input
+              type="button"
+              class="btn btnPrimary"
+              value="Sign Up"
+              (click)="authService.SignUp(userEmail.value, userPwd.value)"
+              routerLink="/home"
+            />
+            <button
+              type="button"
+              class="btn googleBtn"
+              (click)="authService.GoogleAuth()"
+            >
+              <i class="fab fa-google-plus-g"></i>
+              Continue with Google
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
