@@ -7,6 +7,8 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+import { Proforma } from './proforma';
+import { Promise } from 'es6-promise';
 @Injectable({
   providedIn: 'root',
 })
@@ -123,6 +125,22 @@ export class AuthService {
       merge: true,
     });
   }
+
+  SetPdaData(user: any) {
+    const userRef: AngularFirestoreDocument<any> = this.afs.doc(
+      `users/${user.uid}`
+    );
+    const pdaData: Proforma = {
+      grossTonnage: user.number,
+      lengthOverAll: user.number,
+      hoursAtBerth: user.number,
+      TotalEUR: user.number,
+    };
+    return userRef.set(pdaData, {
+      merge: true,
+    });
+  }
+
   // Sign out
   SignOut() {
     return this.afAuth.signOut().then(() => {

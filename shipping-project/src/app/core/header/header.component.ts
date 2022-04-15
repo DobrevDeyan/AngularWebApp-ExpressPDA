@@ -12,12 +12,4 @@ export class HeaderComponent {
   }
 
   constructor(public authService: AuthService) {}
-
-  // loginHandler(): void {
-  //   this.userService.login();
-  // }
-
-  // logOutHandler(): void {
-  //   this.userService.logout();
-  // }
 }

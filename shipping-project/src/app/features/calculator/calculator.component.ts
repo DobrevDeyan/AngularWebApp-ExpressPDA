@@ -7,7 +7,8 @@ import * as $ from 'jquery';
   styleUrls: ['./calculator.component.css'],
 })
 export class CalculatorComponent implements OnInit {
-  constructor() {}
+  // constructor(private authService: AuthService, ) {}
+  
 
   ngOnInit(): void {}
 
