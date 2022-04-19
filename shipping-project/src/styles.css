@@ -16,8 +16,8 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 html {
-  /* background-color: gray; */
-  background: url("./assets/img/terminal.png") no-repeat center center fixed;
+  background-color: darkslategray;
+  /* background: url("./assets/img/terminal.png") no-repeat center center fixed; */
   height: 100vh;
   -webkit-background-size: cover;
   -moz-background-size: cover;

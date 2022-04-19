@@ -12,8 +12,8 @@
   position: relative;
   max-width: 300px;
   height: auto;
-  background-color: #32bbff;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg stroke='%23000000' stroke-width='66.7' stroke-opacity='0.05' %3E%3Ccircle fill='%2332BBFF' cx='0' cy='0' r='1800'/%3E%3Ccircle fill='%232eb0f0' cx='0' cy='0' r='1700'/%3E%3Ccircle fill='%232aa6e1' cx='0' cy='0' r='1600'/%3E%3Ccircle fill='%23269bd2' cx='0' cy='0' r='1500'/%3E%3Ccircle fill='%232391c4' cx='0' cy='0' r='1400'/%3E%3Ccircle fill='%232087b6' cx='0' cy='0' r='1300'/%3E%3Ccircle fill='%231d7da8' cx='0' cy='0' r='1200'/%3E%3Ccircle fill='%231a739a' cx='0' cy='0' r='1100'/%3E%3Ccircle fill='%2318698c' cx='0' cy='0' r='1000'/%3E%3Ccircle fill='%23165f7f' cx='0' cy='0' r='900'/%3E%3Ccircle fill='%23145572' cx='0' cy='0' r='800'/%3E%3Ccircle fill='%23124c65' cx='0' cy='0' r='700'/%3E%3Ccircle fill='%23114359' cx='0' cy='0' r='600'/%3E%3Ccircle fill='%230f3a4d' cx='0' cy='0' r='500'/%3E%3Ccircle fill='%230d3141' cx='0' cy='0' r='400'/%3E%3Ccircle fill='%230b2836' cx='0' cy='0' r='300'/%3E%3Ccircle fill='%2309202b' cx='0' cy='0' r='200'/%3E%3Ccircle fill='%23061820' cx='0' cy='0' r='100'/%3E%3C/g%3E%3C/svg%3E");
+  background-color: #100015;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg fill-opacity='0.39'%3E%3Cpolygon fill='%23151d25' points='800 100 0 200 0 800 1600 800 1600 200'/%3E%3Cpolygon fill='%23193b36' points='800 200 0 400 0 800 1600 800 1600 400'/%3E%3Cpolygon fill='%231e5846' points='800 300 0 600 0 800 1600 800 1600 600'/%3E%3Cpolygon fill='%23237657' points='1600 800 800 400 0 800'/%3E%3Cpolygon fill='%23289367' points='1280 800 800 500 320 800'/%3E%3Cpolygon fill='%232cb178' points='533.3 800 1066.7 800 800 600'/%3E%3Cpolygon fill='%2331CE88' points='684.1 800 914.3 800 800 700'/%3E%3C/g%3E%3C/svg%3E");
   background-attachment: fixed;
   background-size: cover;
   margin: 40px auto;

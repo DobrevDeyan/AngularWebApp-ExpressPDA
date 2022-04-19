@@ -2,16 +2,14 @@
   <div class="navigation-wrapper">
     <div class="container">
       <ul>
-        <li class="logo"><a href="index.html">DobrevInc.</a></li>
+        <li class="logo"><a routerLink="welcome">DobrevInc.</a></li>
         <li><a routerLink="/home">home</a></li>
         <li><a routerLink="/about">about</a></li>
         <li><a routerLink="/contacts">contacts</a></li>
         <li><a routerLink="/pricing">pricing</a></li>
+        <li><a routerLink="/faq">faq</a></li>
         <li class="logged" *ngIf="!isLoggedIn">
-          <a routerLink="/login">Login</a>
-        </li>
-        <li class="logged" *ngIf="!isLoggedIn">
-          <a routerLink="/register">register</a>
+          <a routerLink="/login">Login/Register</a>
         </li>
         <li *ngIf="isLoggedIn">
           <a routerLink="/profile">User Profile</a>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
+import { ExportDataService } from 'src/app/shared/export-data.service';
+import { Proforma } from 'src/app/shared/proforma';
 
 @Component({
   selector: 'app-calculator',
@@ -7,8 +8,7 @@ import * as $ from 'jquery';
   styleUrls: ['./calculator.component.css'],
 })
 export class CalculatorComponent implements OnInit {
-  // constructor(private authService: AuthService, ) {}
-  
+  constructor(public eds: ExportDataService) {}
 
   ngOnInit(): void {}
 
@@ -18,6 +18,9 @@ export class CalculatorComponent implements OnInit {
     $('#vesselType').prop('selectedIndex', 0);
     $('#operations').prop('selectedIndex', 0);
     $('#conditions').prop('selectedIndex', 0);
+    setTimeout(() => {
+      $('table tr').fadeOut(200);
+    }, 1000);
     $('#frm').trigger('reset');
   }
 }

@@ -10,10 +10,15 @@ import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { ProfilePageComponent } from './authentication/profile-page/profile-page.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { AuthGuard } from './services/auth.guard';
+import { FaqComponent } from './pages/faq/faq.component';
 
 const routes: Routes = [
   {
     path: '',
+    component: WelcomeComponent,
+  },
+  {
+    path: 'welcome',
     component: WelcomeComponent,
   },
   {
@@ -38,11 +43,11 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'login',
-    component: LoginFormComponent,
+    path: 'faq',
+    component: FaqComponent,
   },
   {
-    path: 'register',
+    path: 'login',
     component: LoginFormComponent,
   },
   {

@@ -125,11 +125,14 @@ main > div > p.reset {
 
 .info-wrapper {
   display: flex;
-  justify-content: space-between;
-  flex-direction: column;
+  justify-content: center;
+  /* flex-direction: column; */
+  flex-direction: column-reverse;
 }
 
 .resetButton {
+  max-width: 150px;
+  margin: 0 auto;
   margin-top: 20px;
   padding: 8px 20px;
   box-shadow: 0 0 0 5px #fff;

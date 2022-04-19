@@ -1,5 +1,5 @@
 import { Injectable, NgZone } from '@angular/core';
-import { User } from '../services/user';
+import { User } from '../shared/user';
 import * as auth from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {
@@ -7,8 +7,7 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
-import { Proforma } from './proforma';
-import { Promise } from 'es6-promise';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -34,18 +33,19 @@ export class AuthService {
     });
   }
   // Sign in with email/password
-  SignIn(email: string, password: string) {
-    return this.afAuth
-      .signInWithEmailAndPassword(email, password)
-      .then((result) => {
-        this.ngZone.run(() => {
-          this.router.navigate(['profile']);
-        });
-        this.SetUserData(result.user);
-      })
-      .catch((error) => {
-        window.alert(error.message);
+  async SignIn(email: string, password: string) {
+    try {
+      const result = await this.afAuth.signInWithEmailAndPassword(
+        email,
+        password
+      );
+      this.ngZone.run(() => {
+        this.router.navigate(['profile']);
       });
+      this.SetUserData(result.user);
+    } catch (error) {
+      window.alert(error.message);
+    }
   }
   // Sign up with email/password
   SignUp(email: string, password: string) {
@@ -80,7 +80,7 @@ export class AuthService {
   //       window.alert(error);
   //     });
   // }
-  // Returns true when user is looged in and email is verified
+  // Returns true when user is looged in and email is verified / && user.emailVerified !== false ? true : false;
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
     return user !== null;
@@ -126,26 +126,27 @@ export class AuthService {
     });
   }
 
-  SetPdaData(user: any) {
-    const userRef: AngularFirestoreDocument<any> = this.afs.doc(
-      `users/${user.uid}`
-    );
-    const pdaData: Proforma = {
-      grossTonnage: user.number,
-      lengthOverAll: user.number,
-      hoursAtBerth: user.number,
-      TotalEUR: user.number,
-    };
-    return userRef.set(pdaData, {
-      merge: true,
-    });
-  }
+  // SetPdaData(user: any) {
+  //   const userRef: AngularFirestoreDocument<any> = this.afs.doc(
+  //     `users/${user.uid}`
+  //   );
+  //   const pdaData: Proforma = {
+  //     uid: user.uid,
+  //     grossTonnage: user.number,
+  //     lengthOverAll: user.number,
+  //     hoursAtBerth: user.number,
+  //     TotalEUR: user.number,
+  //   };
+  //   return userRef.set(pdaData, {
+  //     merge: true,
+  //   });
+  // }
 
   // Sign out
   SignOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['home']);
+      this.router.navigate(['welcome']);
     });
   }
 }

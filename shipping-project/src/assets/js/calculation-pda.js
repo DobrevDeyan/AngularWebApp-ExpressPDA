@@ -1,4 +1,6 @@
-// ========================== VARNA EAST/WEST TABLE FUNCTION ========================= //
+$(function () {
+  $("table tr").hide();
+});
 
 function generateProforma() {
   if (
@@ -24,7 +26,6 @@ function calculateProforma() {
   let docking = document.getElementById("docking-repairs");
   let navy = document.getElementById("navy");
   let loading = document.getElementById("loading");
-  // let discharging = document.getElementById("discharging"); feature/variable not used currently
   let other = document.getElementById("other");
   let dgCargoIn = document.getElementById("dg-cargo-in");
   let dgCargoOut = document.getElementById("dg-cargo-out");
@@ -39,10 +40,9 @@ function calculateProforma() {
     $(".vessel-tanker").css("display", "table-row");
   }
 
-  $("table tr").hide();
   $("table tr").each(function (index) {
     $(this)
-      .delay(index * 100)
+      .delay(index * 70)
       .show(1000);
   });
 
@@ -2998,6 +2998,12 @@ function calculateProforma() {
     resultVwNumberSailingPermission +
     resultVwNumberMarpolFee +
     resultVwNumberCargoPlan;
-}
 
-// ================================= SIGN UP PAGE =================================== //
+  const proformaEntry = {
+    grossTonnage,
+    lengthOverAll,
+    hoursAtBerth,
+    resultVeTotalCost,
+    resultVwTotalCost,
+  };
+}
