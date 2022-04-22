@@ -21,6 +21,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
 import { AuthService } from './services/auth.service';
 import { ExportDataService } from './shared/export-data.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { ExportDataService } from './shared/export-data.service';
     AngularFireStorageModule,
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(environment.firebase),
+    FormsModule,
   ],
   providers: [AuthService, ExportDataService],
   bootstrap: [AppComponent, HeaderComponent, FooterComponent],

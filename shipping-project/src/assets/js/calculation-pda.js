@@ -1,5 +1,6 @@
 $(function () {
   $("table tr").hide();
+  console.log(123);
 });
 
 function generateProforma() {

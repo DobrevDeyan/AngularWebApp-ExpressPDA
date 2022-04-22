@@ -8,7 +8,11 @@
       <form class="left">
         <fieldset>
           <legend>vesselType</legend>
-          <select id="vesselType" name="vessel-type">
+          <select
+            id="vesselType"
+            name="vessel-type"
+            [(ngModel)]="options.vesselType"
+          >
             <option value="Other" id="other">Other</option>
             <option value="Tanker" id="tanker">Tanker</option>
             <option value="Container" id="container">Container</option>
@@ -21,7 +25,11 @@
         </fieldset>
         <fieldset>
           <legend>operations</legend>
-          <select id="operations" name="operations">
+          <select
+            id="operations"
+            name="operations"
+            [(ngModel)]="options.operations"
+          >
             <option value="Other">Other</option>
             <option value="Loading" id="loading">Loading</option>
             <option value="Discharging" id="discharging">Discharging</option>
@@ -29,7 +37,11 @@
         </fieldset>
         <fieldset>
           <legend>special state</legend>
-          <select id="conditions" name="conditions">
+          <select
+            id="conditions"
+            name="conditions"
+            [(ngModel)]="options.specialState"
+          >
             <option value="None">None</option>
             <option value="Dg cargo in" id="dg-cargo-in">DG cargo in</option>
             <option value="DG cargo out" id="dg-cargo-out">DG cargo out</option>
@@ -48,6 +60,8 @@
           id="gross_tonnage"
           onfocus="this.value=''"
           value="10000"
+          [(ngModel)]="options.grossTonnage"
+          [ngModelOptions]="{ standalone: true }"
         />
         <label>LOA</label>
         <input
@@ -56,6 +70,8 @@
           id="length_over_all"
           onfocus="this.value=''"
           value="100"
+          [(ngModel)]="options.lengthOverall"
+          [ngModelOptions]="{ standalone: true }"
         />
         <label>HRS AT BERTH</label>
         <input
@@ -64,11 +80,13 @@
           id="hours_at_berth"
           onfocus="this.value=''"
           value="10"
+          [(ngModel)]="options.hoursAtBerth"
+          [ngModelOptions]="{ standalone: true }"
         />
       </form>
     </div>
     <div class="info-wrapper">
-      <button onclick="generateProforma()" type="button" class="button-style">
+      <button (click)="generateProforma()" type="button" class="button-style">
         <a>
           <span>Generate PDA</span>
           <div class="wave5"></div>
@@ -93,7 +111,9 @@
         </tr>
         <tr>
           <td>tonnage dues</td>
-          <td id="ve-result-tonnage-dues"></td>
+          <td id="ve-result-tonnage-dues">
+            {{ computedOptions.varnaEast.tonnageDues }}
+          </td>
         </tr>
         <tr>
           <td>berth dues</td>

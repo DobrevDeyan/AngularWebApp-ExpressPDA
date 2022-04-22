@@ -10,12 +10,16 @@ function init() {
   const formBx = document.querySelector(".formBx");
   const box = document.querySelector(".loggin-wrapper");
 
-  signUpBtn.onclick = function () {
-    formBx.classList.add("active");
-    box.classList.add("active");
-  };
-  signInBtn.onclick = function () {
-    formBx.classList.remove("active");
-    box.classList.remove("active");
-  };
+  if (signUpBtn) {
+    signUpBtn.onclick = function () {
+      formBx.classList.add("active");
+      box.classList.add("active");
+    };
+  }
+  if (signInBtn) {
+    signInBtn.onclick = function () {
+      formBx.classList.remove("active");
+      box.classList.remove("active");
+    };
+  }
 }

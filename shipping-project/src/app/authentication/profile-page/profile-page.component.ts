@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 // import { UserService } from 'src/app/services/user.service';
+
+// rename data-service to firebase-service
+// import firebase-service
+// create function in furebase-service to get all proformas by uid
+// call getProformas(uid)
+
+// import authService (like in export-data)
+
 @Component({
   selector: 'app-profile-page',
   templateUrl: './profile-page.component.html',
@@ -11,5 +19,12 @@ export class ProfilePageComponent implements OnInit {
     public authService: AuthService // public userService: UserService
   ) {}
 
-  ngOnInit(): void {}
+  proformas = [];
+
+  ngOnInit(): void {
+    // get uid from authService ...  this.authService.userData.uid
+    // call getProformas(uid)
+    // store the proformas in this.proformas
+    // in the html print the this.proformas array
+  }
 }
