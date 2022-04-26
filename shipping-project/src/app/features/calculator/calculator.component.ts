@@ -83,22 +83,41 @@ export class CalculatorComponent implements OnInit {
         (
           document.querySelector('.table-wrapper') as HTMLElement
         ).style.display = 'flex';
-      }, 1000);
-      // this.pdaService.calculateProforma();
-      this.calculateProforma();
+      }, 500);
 
-      this.exportdataService.exportProforma(this.configuration);
+      // handle the appearance of both tables with jquery
+      $(function () {
+        $('table tr').hide();
+        console.log(123);
+      });
+
+      $('table tr').each(function (index) {
+        $(this)
+          .delay(index * 70)
+          .show(1000);
+      });
+
+      // this.pdaService.calculateProforma(); not working due currently
+      this.calculateProforma(); // Generate PDA
+      this.exportdataService.exportProforma(this.configuration); // Export service to handle user proforma details in firestore
     } else {
       setTimeout(() => {
         alert('You need to provide the required vessel particulars.');
       }, 300);
     }
   }
-  getProforma() {
-    this.exportdataService.getProformas();
-  }
+  // getProforma() {
+  //   this.exportdataService.getProformas();
+  // }
   resetConfig(): void {
     this.configuration = this.configurationDefaults;
+    $('#vesselType').prop('selectedIndex', 0);
+    $('#operations').prop('selectedIndex', 0);
+    $('#conditions').prop('selectedIndex', 0);
+    setTimeout(() => {
+      $('table tr').fadeOut(200);
+    }, 1000);
+    $('#frm').trigger('reset');
   }
   calculateProforma() {
     // ============================== VARNA EAST FORMULAS ============================== //

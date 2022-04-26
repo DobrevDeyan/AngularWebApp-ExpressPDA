@@ -9,30 +9,31 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginFormComponent implements OnInit {
   constructor(public authService: AuthService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    document.addEventListener('readystatechange', function () {
+      if (document.readyState === 'complete') {
+        init();
+      }
+    });
+
+    function init() {
+      const signInBtn = document.querySelector('.signinBtn');
+      const signUpBtn = document.querySelector('.signupBtn');
+      const formBx = document.querySelector('.formBx');
+      const box = document.querySelector('.loggin-wrapper');
+
+      if (signUpBtn) {
+        signUpBtn.addEventListener('click', () => {
+          formBx.classList.add('active');
+          box.classList.add('active');
+        });
+      }
+      if (signInBtn) {
+        signInBtn.addEventListener('click', () => {
+          formBx.classList.remove('active');
+          box.classList.remove('active');
+        });
+      }
+    }
+  }
 }
-// document.addEventListener("readystatechange", function () {
-//   if (document.readyState === "complete") {
-//     init();
-//   }
-// });
-
-// function init() {
-//   const signInBtn = document.querySelector(".signinBtn");
-//   const signUpBtn = document.querySelector(".signupBtn");
-//   const formBx = document.querySelector(".formBx");
-//   const box = document.querySelector(".loggin-wrapper");
-
-//   if (signUpBtn) {
-//     signUpBtn.onclick = function () {
-//       formBx.classList.add("active");
-//       box.classList.add("active");
-//     };
-//   }
-//   if (signInBtn) {
-//     signInBtn.onclick = function () {
-//       formBx.classList.remove("active");
-//       box.classList.remove("active");
-//     };
-//   }
-// }

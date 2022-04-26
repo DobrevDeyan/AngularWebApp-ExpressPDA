@@ -33,6 +33,7 @@ export class AuthService {
       }
     });
   }
+
   // Sign in with email/password
   async SignIn(email: string, password: string) {
     try {
@@ -48,43 +49,24 @@ export class AuthService {
       window.alert(error.message);
     }
   }
+
   // Sign up with email/password
   async SignUp(email: string, password: string) {
     try {
-      const result = await this.afAuth
-        .createUserWithEmailAndPassword(email, password);
-      /* Call the SendVerificaitonMail() function when new user sign
-      up and returns promise */
-      // this.SendVerificationMail();
+      const result = await this.afAuth.createUserWithEmailAndPassword(
+        email,
+        password
+      );
       this.SetUserData(result.user);
     } catch (error) {
       window.alert(error.message);
     }
   }
-  // Send email verfificaiton when new user sign up
-  // SendVerificationMail() {
-  //   return this.afAuth.currentUser
-  //     .then((u: any) => u.sendEmailVerification())
-  //     .then(() => {
-  //       this.router.navigate(['verify-email-address']);
-  //     });
-  // }
-  // Reset Forggot password
-  // ForgotPassword(passwordResetEmail: string) {
-  //   return this.afAuth
-  //     .sendPasswordResetEmail(passwordResetEmail)
-  //     .then(() => {
-  //       window.alert('Password reset email sent, check your inbox.');
-  //     })
-  //     .catch((error) => {
-  //       window.alert(error);
-  //     });
-  // }
-  // Returns true when user is looged in and email is verified / && user.emailVerified !== false ? true : false;
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
     return user !== null;
   }
+
   // Sign in with Google
   GoogleAuth() {
     return this.AuthLogin(new auth.GoogleAuthProvider()).then((res: any) => {
@@ -93,6 +75,7 @@ export class AuthService {
       }
     });
   }
+
   // Auth logic to run auth providers
   AuthLogin(provider: any) {
     return this.afAuth
@@ -107,6 +90,7 @@ export class AuthService {
         window.alert(error);
       });
   }
+
   /* Setting up user data when sign in with username/password, 
   sign up with username/password and sign in with social auth  
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */

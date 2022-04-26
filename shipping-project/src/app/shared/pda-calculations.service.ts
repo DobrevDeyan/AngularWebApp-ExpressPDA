@@ -54,6 +54,8 @@ export class PdaCalculationsService {
     },
   };
 
+  // Still to resolve issue with pulling this service in the calculator component via Subject/Observables
+
   // Observable string sources
   private compInstance = new Subject<any>();
   // Observable string streams
