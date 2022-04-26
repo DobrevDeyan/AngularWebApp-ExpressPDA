@@ -22,6 +22,7 @@ import { environment } from '../environments/environment';
 import { AuthService } from './services/auth.service';
 import { ExportDataService } from './shared/export-data.service';
 import { FormsModule } from '@angular/forms';
+import { PdaCalculationsService } from './shared/pda-calculations.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { FormsModule } from '@angular/forms';
     AngularFireModule.initializeApp(environment.firebase),
     FormsModule,
   ],
-  providers: [AuthService, ExportDataService],
+  providers: [AuthService, ExportDataService, PdaCalculationsService],
   bootstrap: [AppComponent, HeaderComponent, FooterComponent],
 })
 export class AppModule {}

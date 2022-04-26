@@ -11,7 +11,7 @@
           <select
             id="vesselType"
             name="vessel-type"
-            [(ngModel)]="options.vesselType"
+            [(ngModel)]="configuration.vesselType"
           >
             <option value="Other" id="other">Other</option>
             <option value="Tanker" id="tanker">Tanker</option>
@@ -28,7 +28,7 @@
           <select
             id="operations"
             name="operations"
-            [(ngModel)]="options.operations"
+            [(ngModel)]="configuration.operations"
           >
             <option value="Other">Other</option>
             <option value="Loading" id="loading">Loading</option>
@@ -40,7 +40,7 @@
           <select
             id="conditions"
             name="conditions"
-            [(ngModel)]="options.specialState"
+            [(ngModel)]="configuration.specialState"
           >
             <option value="None">None</option>
             <option value="Dg cargo in" id="dg-cargo-in">DG cargo in</option>
@@ -60,7 +60,7 @@
           id="gross_tonnage"
           onfocus="this.value=''"
           value="10000"
-          [(ngModel)]="options.grossTonnage"
+          [(ngModel)]="configuration.grossTonnage"
           [ngModelOptions]="{ standalone: true }"
         />
         <label>LOA</label>
@@ -70,7 +70,7 @@
           id="length_over_all"
           onfocus="this.value=''"
           value="100"
-          [(ngModel)]="options.lengthOverall"
+          [(ngModel)]="configuration.lengthOverall"
           [ngModelOptions]="{ standalone: true }"
         />
         <label>HRS AT BERTH</label>
@@ -80,7 +80,7 @@
           id="hours_at_berth"
           onfocus="this.value=''"
           value="10"
-          [(ngModel)]="options.hoursAtBerth"
+          [(ngModel)]="configuration.hoursAtBerth"
           [ngModelOptions]="{ standalone: true }"
         />
       </form>
@@ -94,6 +94,9 @@
       </button>
       <button (click)="resetConfig()" type="button" class="resetButton">
         Reset
+      </button>
+      <button (click)="getProforma()" type="button" class="resetButton">
+        FUCK YOU
       </button>
     </div>
   </div>
@@ -112,64 +115,88 @@
         <tr>
           <td>tonnage dues</td>
           <td id="ve-result-tonnage-dues">
-            {{ computedOptions.varnaEast.tonnageDues }}
+            {{ computedProforma.varnaEast.tonnageDues }}
           </td>
         </tr>
         <tr>
           <td>berth dues</td>
-          <td id="ve-result-berth-dues"></td>
+          <td id="ve-result-berth-dues">
+            {{ computedProforma.varnaEast.berthDues }}
+          </td>
         </tr>
         <tr>
           <td>pilotage In</td>
-          <td id="ve-result-pilotage-in"></td>
+          <td id="ve-result-pilotage-in">
+            {{ computedProforma.varnaEast.pilotageIn }}
+          </td>
         </tr>
         <tr>
           <td>pilotage out</td>
-          <td id="ve-result-pilotage-out"></td>
+          <td id="ve-result-pilotage-out">
+            {{ computedProforma.varnaEast.pilotageOut }}
+          </td>
         </tr>
         <tr>
           <td>towage in</td>
-          <td id="ve-result-towage-in"></td>
+          <td id="ve-result-towage-in">
+            {{ computedProforma.varnaEast.towageIn }}
+          </td>
         </tr>
         <tr>
           <td>towage out</td>
-          <td id="ve-result-towage-out"></td>
+          <td id="ve-result-towage-out">
+            {{ computedProforma.varnaEast.towageOut }}
+          </td>
         </tr>
         <tr>
           <td>mooring</td>
-          <td id="ve-result-mooring"></td>
+          <td id="ve-result-mooring">
+            {{ computedProforma.varnaEast.mooring }}
+          </td>
         </tr>
         <tr>
           <td>unmooring</td>
-          <td id="ve-result-unmooring"></td>
+          <td id="ve-result-unmooring">
+            {{ computedProforma.varnaEast.unmooring }}
+          </td>
         </tr>
         <tr>
           <td>channel dues</td>
-          <td id="ve-result-channel-dues"></td>
+          <td id="ve-result-channel-dues">
+            {{ computedProforma.varnaEast.channelDues }}
+          </td>
         </tr>
         <tr>
           <td>light dues</td>
-          <td id="ve-result-light-dues"></td>
+          <td id="ve-result-light-dues">
+            {{ computedProforma.varnaEast.lightDues }}
+          </td>
         </tr>
         <tr>
           <td>sailing permission</td>
-          <td id="ve-result-sailing-permission"></td>
+          <td id="ve-result-sailing-permission">
+            {{ computedProforma.varnaEast.sailingPermission }}
+          </td>
         </tr>
         <tr>
           <td>marpol 73/78 fee</td>
-          <td id="ve-result-marpol-fee"></td>
+          <td id="ve-result-marpol-fee">
+            {{ computedProforma.varnaEast.marpol }}
+          </td>
         </tr>
-        <tr class="cargo-verification">
+        <!-- <tr class="cargo-verification">
           <td>cargo plan verification</td>
           <td id="ve-cargo-plan-verification"></td>
         </tr>
         <tr class="vessel-tanker">
           <td>laying of oil booms</td>
           <td id="ve-oilbooming"></td>
-        </tr>
+        </tr> -->
         <tr>
           <td>total:</td>
-          <td id="ve-result-total-cost"></td>
+          <td id="ve-result-total-cost">
+            {{ computedProforma.varnaEast.total }}
+          </td>
         </tr>
       </tbody>
     </table>
@@ -184,63 +211,89 @@
         </tr>
         <tr>
           <td>tonnage dues</td>
-          <td id="vw-result-tonnage-dues"></td>
+          <td id="vw-result-tonnage-dues">
+            {{ computedProforma.varnaWest.tonnageDues }}
+          </td>
         </tr>
         <tr>
           <td>berth dues</td>
-          <td id="vw-result-berth-dues"></td>
+          <td id="vw-result-berth-dues">
+            {{ computedProforma.varnaWest.berthDues }}
+          </td>
         </tr>
         <tr>
           <td>pilotage In</td>
-          <td id="vw-result-pilotage-in"></td>
+          <td id="vw-result-pilotage-in">
+            {{ computedProforma.varnaWest.pilotageIn }}
+          </td>
         </tr>
         <tr>
           <td>pilotage out</td>
-          <td id="vw-result-pilotage-out"></td>
+          <td id="vw-result-pilotage-out">
+            {{ computedProforma.varnaWest.pilotageOut }}
+          </td>
         </tr>
         <tr>
           <td>towage in</td>
-          <td id="vw-result-towage-in"></td>
+          <td id="vw-result-towage-in">
+            {{ computedProforma.varnaWest.towageIn }}
+          </td>
         </tr>
         <tr>
           <td>towage out</td>
-          <td id="vw-result-towage-out"></td>
+          <td id="vw-result-towage-out">
+            {{ computedProforma.varnaWest.towageOut }}
+          </td>
         </tr>
         <tr>
           <td>mooring</td>
-          <td id="vw-result-mooring"></td>
+          <td id="vw-result-mooring">
+            {{ computedProforma.varnaWest.mooring }}
+          </td>
         </tr>
         <tr>
           <td>unmooring</td>
-          <td id="vw-result-unmooring"></td>
+          <td id="vw-result-unmooring">
+            {{ computedProforma.varnaWest.unmooring }}
+          </td>
         </tr>
         <tr>
           <td>channel dues</td>
-          <td id="vw-result-channel-dues"></td>
+          <td id="vw-result-channel-dues">
+            {{ computedProforma.varnaWest.channelDues }}
+          </td>
         </tr>
         <tr>
           <td>light dues</td>
-          <td id="vw-result-light-dues"></td>
+          <td id="vw-result-light-dues">
+            {{ computedProforma.varnaWest.lightDues }}
+          </td>
         </tr>
         <tr>
           <td>sailing permission</td>
-          <td id="vw-result-sailing-permission"></td>
+          <td id="vw-result-sailing-permission">
+            {{ computedProforma.varnaWest.sailingPermission }}
+          </td>
         </tr>
         <tr>
           <td>marpol 73/78 fee</td>
-          <td id="vw-result-marpol-fee"></td>
+          <td id="vw-result-marpol-fee">
+            {{ computedProforma.varnaWest.marpol }}
+          </td>
         </tr>
-        <tr class="cargo-verification">
+        <!-- <tr class="cargo-verification">
           <td>cargo plan verification</td>
           <td id="vw-cargo-plan-verification"></td>
         </tr>
         <tr class="vessel-tanker">
           <td>laying of oil booms</td>
           <td id="vw-oilbooming"></td>
-        </tr>
+        </tr> -->
         <tr>
           <td>total:</td>
-          <td id="vw-result-total-cost"></td>
+          <td id="vw-result-total-cost">
+            {{ computedProforma.varnaWest.total }}
+          </td>
         </tr>
       </tbody>
     </table>

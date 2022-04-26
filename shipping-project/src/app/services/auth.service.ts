@@ -7,7 +7,6 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
-import { Proforma } from '../shared/proforma';
 
 @Injectable({
   providedIn: 'root',
@@ -50,18 +49,17 @@ export class AuthService {
     }
   }
   // Sign up with email/password
-  SignUp(email: string, password: string) {
-    return this.afAuth
-      .createUserWithEmailAndPassword(email, password)
-      .then((result) => {
-        /* Call the SendVerificaitonMail() function when new user sign 
-        up and returns promise */
-        // this.SendVerificationMail();
-        this.SetUserData(result.user);
-      })
-      .catch((error) => {
-        window.alert(error.message);
-      });
+  async SignUp(email: string, password: string) {
+    try {
+      const result = await this.afAuth
+        .createUserWithEmailAndPassword(email, password);
+      /* Call the SendVerificaitonMail() function when new user sign
+      up and returns promise */
+      // this.SendVerificationMail();
+      this.SetUserData(result.user);
+    } catch (error) {
+      window.alert(error.message);
+    }
   }
   // Send email verfificaiton when new user sign up
   // SendVerificationMail() {

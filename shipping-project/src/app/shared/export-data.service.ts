@@ -1,7 +1,15 @@
 import { Injectable } from '@angular/core';
-import { doc, setDoc, getFirestore } from 'firebase/firestore';
-import { stringify } from 'querystring';
+import {
+  doc,
+  setDoc,
+  getFirestore,
+  getDocs,
+  collection,
+  query,
+  where,
+} from 'firebase/firestore';
 import { AuthService } from '../services/auth.service';
+import { Proforma } from './proforma';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +18,8 @@ export class ExportDataService {
   constructor(public authService: AuthService) {
     this.authService = authService;
   }
-  async exportProforma(options: any) {
+
+  async exportProforma(options: Proforma) {
     let docName =
       this.authService.userData.uid +
       options.vesselType +
@@ -33,14 +42,29 @@ export class ExportDataService {
       uid: this.authService.userData.uid,
     });
   }
-  createDocName(s): string {
+
+  async getProformas() {
+    let db = getFirestore();
+
+    const q = query(
+      collection(db, 'proformas'),
+      where('uid', '==', this.authService.userData.uid)
+    );
+
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      console.log(doc.id, ' => ', doc.data());
+    });
+  }
+
+  createDocName(s: string) {
     var a = 1,
       c = 0,
       h,
       o;
     if (s) {
       a = 0;
-      /*jshint plusplus:false bitwise:false*/
       for (h = s.length - 1; h >= 0; h--) {
         o = s.charCodeAt(h);
         a = ((a << 6) & 268435455) + o + (o << 14);
@@ -50,5 +74,4 @@ export class ExportDataService {
     }
     return String(a);
   }
-  async getProformas(uid: string) {}
 }

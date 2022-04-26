@@ -1,9 +1,13 @@
 export interface Proforma {
-  uid: string;
+  uid?: string;
   grossTonnage: number;
   hoursAtBerth: number;
-  lengthOverAll: number;
+  lengthOverall: number;
   operations: string;
   specialState: string;
   vesselType: string;
 }
+
+
+
+
