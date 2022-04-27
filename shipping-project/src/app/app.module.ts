@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
@@ -8,7 +9,6 @@ import { LoginFormComponent } from './authentication/login-form/login-form.compo
 import { PricingComponent } from './pages/pricing/pricing.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { CoreModule } from './core/core.module';
-import { RouterModule } from '@angular/router';
 import { FeaturesModule } from './features/features.module';
 import { PagesModule } from './pages/pages.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +20,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
 import { AuthService } from './services/auth.service';
+import { RouterModule } from '@angular/router';
 import { ExportDataService } from './shared/export-data.service';
 import { FormsModule } from '@angular/forms';
 import { PdaCalculationsService } from './shared/pda-calculations.service';
@@ -35,6 +36,7 @@ import { PdaCalculationsService } from './shared/pda-calculations.service';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     CoreModule.forRoot(),
     RouterModule,
     FeaturesModule,

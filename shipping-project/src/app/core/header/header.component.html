@@ -15,6 +15,9 @@
           <a routerLink="/profile">User Profile</a>
         </li>
         <li *ngIf="isLoggedIn">
+          <a routerLink="/calculator">PDA CALCULATOR</a>
+        </li>
+        <li *ngIf="isLoggedIn">
           <a routerLink="/logout" (click)="authService.SignOut()">Log out</a>
         </li>
       </ul>

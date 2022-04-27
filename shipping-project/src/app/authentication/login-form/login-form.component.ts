@@ -10,6 +10,8 @@ export class LoginFormComponent implements OnInit {
   constructor(public authService: AuthService) {}
 
   ngOnInit(): void {
+
+
     document.addEventListener('readystatechange', function () {
       if (document.readyState === 'complete') {
         init();
@@ -20,7 +22,7 @@ export class LoginFormComponent implements OnInit {
       const signInBtn = document.querySelector('.signinBtn');
       const signUpBtn = document.querySelector('.signupBtn');
       const formBx = document.querySelector('.formBx');
-      const box = document.querySelector('.loggin-wrapper');
+      const box = document.querySelector('.login-wrapper');
 
       if (signUpBtn) {
         signUpBtn.addEventListener('click', () => {
@@ -35,5 +37,7 @@ export class LoginFormComponent implements OnInit {
         });
       }
     }
+
+
   }
 }

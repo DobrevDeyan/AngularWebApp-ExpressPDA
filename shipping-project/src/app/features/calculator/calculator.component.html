@@ -57,7 +57,6 @@
         <input
           class="input1"
           type="number"
-          id="gross_tonnage"
           onfocus="this.value=''"
           [(ngModel)]="configuration.grossTonnage"
           [ngModelOptions]="{ standalone: true }"
@@ -66,7 +65,6 @@
         <input
           class="input2"
           type="number"
-          id="length_over_all"
           onfocus="this.value=''"
           [(ngModel)]="configuration.lengthOverall"
           [ngModelOptions]="{ standalone: true }"
@@ -75,7 +73,6 @@
         <input
           class="input3"
           type="number"
-          id="hours_at_berth"
           onfocus="this.value=''"
           [(ngModel)]="configuration.hoursAtBerth"
           [ngModelOptions]="{ standalone: true }"
@@ -191,7 +188,7 @@
         </tr> -->
         <tr>
           <td>total:</td>
-          <td id="ve-result-total-cost">
+          <td>
             {{ computedProforma.varnaEast.total }}
           </td>
         </tr>

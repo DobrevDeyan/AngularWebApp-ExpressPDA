@@ -1,0 +1,10 @@
+section a {
+  cursor: pointer;
+  background-color: red;
+}
+
+button {
+    cursor: pointer;
+    font-size: 30px;
+    background-color: antiquewhite;
+}

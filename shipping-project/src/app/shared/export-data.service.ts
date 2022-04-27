@@ -45,16 +45,42 @@ export class ExportDataService {
 
   async getProformas() {
     let db = getFirestore();
-
+    const storedProformas = document.querySelector('#displayStoredProformas');
     const q = query(
       collection(db, 'proformas'),
       where('uid', '==', this.authService.userData.uid)
     );
 
+    function renderProformas(doc) {
+      let li = document.createElement('li');
+      let type = document.createElement('span');
+      let tonnage = document.createElement('span');
+      let hours = document.createElement('span');
+      let length = document.createElement('span');
+      let operations = document.createElement('span');
+      let state = document.createElement('span');
+
+      type.textContent = doc.data().vesselType;
+      operations.textContent = doc.data().operations;
+      state.textContent = doc.data().specialState;
+      tonnage.textContent = doc.data().grossTonnage;
+      length.textContent = doc.data().lengthOverall;
+      hours.textContent = doc.data().hoursAtBerth;
+
+      li.appendChild(type);
+      li.appendChild(operations);
+      li.appendChild(state);
+      li.appendChild(tonnage);
+      li.appendChild(length);
+      li.appendChild(hours);
+
+      storedProformas.appendChild(li);
+    }
+
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
-      console.log(doc.id, ' => ', doc.data());
+      // console.log(doc.id, ' => ', doc.data());
+      renderProformas(doc);
     });
   }
 

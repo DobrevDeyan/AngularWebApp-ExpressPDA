@@ -7,7 +7,6 @@ import { Proforma } from 'src/app/shared/proforma';
   selector: 'app-calculator',
   templateUrl: './calculator.component.html',
   styleUrls: ['./calculator.component.css'],
-  providers: [PdaCalculationsService],
 })
 export class CalculatorComponent implements OnInit {
   constructor(
@@ -23,7 +22,6 @@ export class CalculatorComponent implements OnInit {
     lengthOverall: 0,
     hoursAtBerth: 0,
   };
-
   // Binds to the HTML form
   configurationDefaults: Proforma = {
     vesselType: 'Other',
@@ -33,7 +31,6 @@ export class CalculatorComponent implements OnInit {
     lengthOverall: 0,
     hoursAtBerth: 0,
   };
-
   // Computed values
   computedProforma = {
     varnaEast: {
@@ -106,11 +103,8 @@ export class CalculatorComponent implements OnInit {
       }, 300);
     }
   }
-  // getProforma() {
-  //   this.exportdataService.getProformas();
-  // }
   resetConfig(): void {
-    this.configuration = this.configurationDefaults;
+    // this.configuration = this.configurationDefaults;
     $('#vesselType').prop('selectedIndex', 0);
     $('#operations').prop('selectedIndex', 0);
     $('#conditions').prop('selectedIndex', 0);

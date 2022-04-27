@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ExportDataService } from 'src/app/shared/export-data.service';
 import { AuthService } from 'src/app/services/auth.service';
-// import { UserService } from 'src/app/services/user.service';
 
 // rename data-service to firebase-service
 // import firebase-service
@@ -16,7 +16,8 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class ProfilePageComponent implements OnInit {
   constructor(
-    public authService: AuthService // public userService: UserService
+    public exportdataService: ExportDataService,
+    public authService: AuthService
   ) {}
 
   proformas = [];
@@ -26,5 +27,9 @@ export class ProfilePageComponent implements OnInit {
     // call getProformas(uid)
     // store the proformas in this.proformas
     // in the html print the this.proformas array
+  }
+
+  getProforma() {
+    this.exportdataService.getProformas();
   }
 }

@@ -16,52 +16,68 @@ const routes: Routes = [
   {
     path: '',
     component: WelcomeComponent,
+    data: { animation: 'fader' },
   },
   {
     path: 'welcome',
     component: WelcomeComponent,
+    data: { animation: 'fader' },
   },
   {
     path: 'home',
-    component: CalculatorComponent,
+
+    component: HomeComponent,
+    data: { animation: 'fader' },
   },
   {
     path: 'about',
     component: AboutComponent,
+    data: { animation: 'fader' },
   },
   {
     path: 'contacts',
     component: ContactsComponent,
+    data: { animation: 'fader' },
   },
   {
     path: 'pricing',
     component: PricingComponent,
+    // data: { animation: 'isRight' },
+    data: { animation: 'fader' },
+  },
+  {
+    path: 'profile',
+    // canActivate: [AuthGuard],
+    component: ProfilePageComponent,
+    data: { animation: 'isLeft' },
+    // data: { animation: 'fader' },
   },
   {
     path: 'calculator',
     component: CalculatorComponent,
-    canActivate: [AuthGuard],
+    data: { animation: 'fader' },
+
+    // canActivate: [AuthGuard],
   },
   {
     path: 'faq',
     component: FaqComponent,
+    data: { animation: 'fader' },
   },
   {
     path: 'login',
     component: LoginFormComponent,
-  },
-  {
-    path: 'profile',
-    canActivate: [AuthGuard],
-    component: ProfilePageComponent,
+    data: { animation: 'fader' },
   },
   {
     path: 'logout',
     component: WelcomeComponent,
+    data: { animation: 'fader' },
   },
   {
     path: '**',
     component: ErrorPageComponent,
+    data: { animation: 'fader' },
   },
 ];
 

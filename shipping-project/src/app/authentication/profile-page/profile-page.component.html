@@ -1,18 +1,19 @@
 <div class="container">
   <h1 class="h2">User Profile</h1>
-  <!-- <img
-    src="{{ user.photoURL ? user.photoURL : '/assets/dummy-user.png' }}"
-    alt="{{ user.displayName }}"
-  /> -->
-  <h1>
-    Hello:
-    <strong
-      >{{
-      <!-- user.displayName ? user.displayName : "User" -->
-      }}</strong
-    >
-  </h1>
-  <p>User ID: <strong></strong></p>
-  <p>Email: <strong></strong></p>
-  <p>Email Verified: <strong></strong></p>
+  <h2>
+    Hello user:
+    <strong>{{ this.authService.userData?.email }}</strong
+    ><br />
+    User ID: <strong>{{ authService.userData?.uid }}</strong
+    ><br />
+    Email: <strong>{{ this.authService.userData?.email }}</strong
+    ><br />
+    Email verified:
+    <strong>{{ this.authService.userData?.emailVerified }}</strong>
+  </h2>
+
+  <section></section>
+
+  <button (click)="getProforma()">View proforma DB</button>
+  <ul id="displayStoredProformas"></ul>
 </div>
