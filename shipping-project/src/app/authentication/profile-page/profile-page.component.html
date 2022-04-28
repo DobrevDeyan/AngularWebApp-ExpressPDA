@@ -12,8 +12,17 @@
     <strong>{{ this.authService.userData?.emailVerified }}</strong>
   </h2>
 
+  <p class="para">
+    Click on below button to view your past generated proformas
+  </p>
+
   <section></section>
 
-  <button (click)="getProforma()">View proforma DB</button>
-  <ul id="displayStoredProformas"></ul>
+  <button (click)="getProforma()" type="button" class="button-style">
+    <a>
+      <span>Generate History</span>
+      <div class="wave5"></div>
+    </a>
+  </button>
+  <section id="displayStoredProformas"></section>
 </div>

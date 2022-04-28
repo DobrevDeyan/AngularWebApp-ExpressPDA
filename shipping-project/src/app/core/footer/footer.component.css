@@ -120,3 +120,15 @@ footer .wave.wave4 {
 .copy {
   font-size: 1.3em;
 }
+
+@media (max-width: 920px) {
+  .container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .footer-menu {
+    text-align: center;
+  }
+
+}

@@ -8,6 +8,7 @@ import {
   query,
   where,
 } from 'firebase/firestore';
+import { url } from 'inspector';
 import { AuthService } from '../services/auth.service';
 import { Proforma } from './proforma';
 
@@ -52,34 +53,51 @@ export class ExportDataService {
     );
 
     function renderProformas(doc) {
-      let li = document.createElement('li');
-      let type = document.createElement('span');
-      let tonnage = document.createElement('span');
-      let hours = document.createElement('span');
-      let length = document.createElement('span');
-      let operations = document.createElement('span');
-      let state = document.createElement('span');
+      let ul = document.createElement('ul');
+      let type = document.createElement('li');
+      let tonnage = document.createElement('li');
+      let hours = document.createElement('li');
+      let length = document.createElement('li');
+      let operations = document.createElement('li');
+      let state = document.createElement('li');
 
-      type.textContent = doc.data().vesselType;
-      operations.textContent = doc.data().operations;
-      state.textContent = doc.data().specialState;
-      tonnage.textContent = doc.data().grossTonnage;
-      length.textContent = doc.data().lengthOverall;
-      hours.textContent = doc.data().hoursAtBerth;
+      ul.style.border = '2px dotted white';
+      ul.style.margin = '40px 20px';
+      ul.style.minWidth = '250px';
+      ul.style.padding = '35px 30px';
+      ul.style.background = '#00aeff';
 
-      li.appendChild(type);
-      li.appendChild(operations);
-      li.appendChild(state);
-      li.appendChild(tonnage);
-      li.appendChild(length);
-      li.appendChild(hours);
+      type.textContent = 'Vessel type: ' + doc.data().vesselType;
+      operations.textContent = 'Operations type: ' + doc.data().operations;
+      state.textContent = 'Special state: ' + doc.data().specialState;
+      tonnage.textContent = 'Gross Tonnage: ' + doc.data().grossTonnage;
+      length.textContent = 'Length over all: ' + doc.data().lengthOverall;
+      hours.textContent = 'Hours at berth: ' + doc.data().hoursAtBerth;
 
-      storedProformas.appendChild(li);
+      ul.appendChild(type);
+      ul.appendChild(operations);
+      ul.appendChild(state);
+      ul.appendChild(tonnage);
+      ul.appendChild(length);
+      ul.appendChild(hours);
+
+      storedProformas.appendChild(ul);
+
+      // Has to be checked why css class is added to the element but still no visual changes
+
+      // const targetLi = document.getElementsByTagName('li');
+      // let arr = Array.from(targetLi);
+      // arr.map((e) => e.classList.add('testClass'));
+      // console.log(arr);
     }
+
+    const hideButton = document.querySelector('.button-style');
+    (hideButton as HTMLElement).style.display = 'none';
+    const hidePara = document.querySelector('.para');
+    (hidePara as HTMLElement).style.display = 'none';
 
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
-      // console.log(doc.id, ' => ', doc.data());
       renderProformas(doc);
     });
   }

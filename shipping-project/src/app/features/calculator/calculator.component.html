@@ -6,51 +6,43 @@
     </p>
     <div class="form-wrapper">
       <form class="left">
-        <fieldset>
-          <legend>vesselType</legend>
-          <select
-            id="vesselType"
-            name="vessel-type"
-            [(ngModel)]="configuration.vesselType"
-          >
-            <option value="Other" id="other">Other</option>
-            <option value="Tanker" id="tanker">Tanker</option>
-            <option value="Container" id="container">Container</option>
-            <option value="Passenger" id="passenger">Passenger</option>
-            <option value="Docking-repairs" id="docking-repairs">
-              Docking
-            </option>
-            <option value="Navy" id="navy">Navy</option>
-          </select>
-        </fieldset>
-        <fieldset>
-          <legend>operations</legend>
-          <select
-            id="operations"
-            name="operations"
-            [(ngModel)]="configuration.operations"
-          >
-            <option value="Other">Other</option>
-            <option value="Loading" id="loading">Loading</option>
-            <option value="Discharging" id="discharging">Discharging</option>
-          </select>
-        </fieldset>
-        <fieldset>
-          <legend>special state</legend>
-          <select
-            id="conditions"
-            name="conditions"
-            [(ngModel)]="configuration.specialState"
-          >
-            <option value="None">None</option>
-            <option value="Dg cargo in" id="dg-cargo-in">DG cargo in</option>
-            <option value="DG cargo out" id="dg-cargo-out">DG cargo out</option>
-            <option value="DG cargo in/out" id="dg-cargo-in-out">
-              DG cargo in/out
-            </option>
-            <option value="Overtime" id="overtime">Overtime</option>
-          </select>
-        </fieldset>
+        <legend>vesselType</legend>
+        <select
+          id="vesselType"
+          name="vessel-type"
+          [(ngModel)]="configuration.vesselType"
+        >
+          <option value="Other">Other</option>
+          <option value="Tanker">Tanker</option>
+          <option value="Container">Container</option>
+          <option value="Passenger">Passenger</option>
+          <option value="Docking-repairs">Docking</option>
+          <option value="Navy">Navy</option>
+        </select>
+
+        <legend>operations</legend>
+        <select
+          id="operations"
+          name="operations"
+          [(ngModel)]="configuration.operations"
+        >
+          <option value="Other">Other</option>
+          <option value="Loading">Loading</option>
+          <option value="Discharging">Discharging</option>
+        </select>
+
+        <legend>special state</legend>
+        <select
+          id="conditions"
+          name="conditions"
+          [(ngModel)]="configuration.specialState"
+        >
+          <option value="None">None</option>
+          <option value="Dg cargo in">DG cargo in</option>
+          <option value="DG cargo out">DG cargo out</option>
+          <option value="DG cargo in/out">DG cargo in/out</option>
+          <option value="Overtime">Overtime</option>
+        </select>
       </form>
       <form class="right" id="frm">
         <label>GT/RGT</label>
@@ -89,9 +81,6 @@
       <button (click)="resetConfig()" type="button" class="resetButton">
         Reset
       </button>
-      <!-- <button (click)="getProforma()" type="button" class="resetButton">
-        FUCK YOU
-      </button> -->
     </div>
   </div>
 </main>

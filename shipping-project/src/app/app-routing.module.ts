@@ -25,7 +25,6 @@ const routes: Routes = [
   },
   {
     path: 'home',
-
     component: HomeComponent,
     data: { animation: 'fader' },
   },
@@ -42,22 +41,19 @@ const routes: Routes = [
   {
     path: 'pricing',
     component: PricingComponent,
-    // data: { animation: 'isRight' },
     data: { animation: 'fader' },
   },
   {
     path: 'profile',
     // canActivate: [AuthGuard],
     component: ProfilePageComponent,
-    data: { animation: 'isLeft' },
-    // data: { animation: 'fader' },
+    // data: { animation: 'isLeft' },
+    data: { animation: 'fader' },
   },
   {
     path: 'calculator',
     component: CalculatorComponent,
     data: { animation: 'fader' },
-
-    // canActivate: [AuthGuard],
   },
   {
     path: 'faq',

@@ -3,23 +3,31 @@
     <div class="container">
       <ul>
         <li class="logo"><a routerLink="welcome">DobrevInc.</a></li>
-        <li><a routerLink="/home">home</a></li>
-        <li><a routerLink="/about">about</a></li>
-        <li><a routerLink="/contacts">contacts</a></li>
-        <li><a routerLink="/pricing">pricing</a></li>
-        <li><a routerLink="/faq">faq</a></li>
-        <li class="logged" *ngIf="!isLoggedIn">
-          <a routerLink="/login">Login/Register</a>
+
+        <li class="burger" (click)="toggleMenu()">
+          <!-- <i class="material-icons">{{ isMenuOpen ? "close" : "menu" }}</i> -->
+          <span class="material-icons">{{ isMenuOpen ? "close" : "menu" }}</span>
         </li>
-        <li *ngIf="isLoggedIn">
-          <a routerLink="/profile">User Profile</a>
-        </li>
-        <li *ngIf="isLoggedIn">
-          <a routerLink="/calculator">PDA CALCULATOR</a>
-        </li>
-        <li *ngIf="isLoggedIn">
-          <a routerLink="/logout" (click)="authService.SignOut()">Log out</a>
-        </li>
+
+        <div class="try" [class.is-open]="isMenuOpen">
+          <li><a routerLink="/home">home</a></li>
+          <li><a routerLink="/about">about</a></li>
+          <li><a routerLink="/contacts">contacts</a></li>
+          <li><a routerLink="/pricing">pricing</a></li>
+          <li><a routerLink="/faq">faq</a></li>
+          <li class="logged" *ngIf="!isLoggedIn">
+            <a routerLink="/login">Login/Register</a>
+          </li>
+          <li *ngIf="isLoggedIn">
+            <a routerLink="/profile">User Profile</a>
+          </li>
+          <li *ngIf="isLoggedIn">
+            <a routerLink="/calculator">PDA CALCULATOR</a>
+          </li>
+          <li *ngIf="isLoggedIn">
+            <a routerLink="/logout" (click)="authService.SignOut()">Log out</a>
+          </li>
+        </div>
       </ul>
     </div>
   </div>

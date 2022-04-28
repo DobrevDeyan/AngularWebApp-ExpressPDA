@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs/internal/Subject';
 import { Proforma } from './proforma';
 @Injectable({
   providedIn: 'root',
 })
 export class PdaCalculationsService {
+  constructor(public pdaService: PdaCalculationsService) {
+    this.pdaService = pdaService;
+  }
+
   configuration: Proforma = {
     vesselType: 'Other',
     operations: 'Other',
@@ -54,15 +57,7 @@ export class PdaCalculationsService {
     },
   };
 
-  // Still to resolve issue with pulling this service in the calculator component via Subject/Observables
-
-  // Observable string sources
-  private compInstance = new Subject<any>();
-  // Observable string streams
-  comp$ = this.compInstance.asObservable();
-
-  // Service message commands
-  calculateProforma() {
+  calculateProforma(configuration) {
     // ============================== VARNA EAST FORMULAS ============================== //
 
     // ===============  Tonnage dues ================= //
@@ -5040,5 +5035,7 @@ export class PdaCalculationsService {
       this.computedProforma.varnaWest.lightDues +
       this.computedProforma.varnaWest.sailingPermission +
       this.computedProforma.varnaWest.marpol;
+
+    return this.computedProforma;
   }
 }

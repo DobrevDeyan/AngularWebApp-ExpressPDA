@@ -7,9 +7,14 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
+  constructor(public authService: AuthService) {}
+
   get isLoggedIn(): boolean {
     return this.authService.isLoggedIn;
   }
 
-  constructor(public authService: AuthService) {}
+  isMenuOpen = false;
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 }

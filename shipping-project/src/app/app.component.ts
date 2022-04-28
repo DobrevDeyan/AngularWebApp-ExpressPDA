@@ -1,5 +1,5 @@
 import { Component, HostBinding } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { ChildrenOutletContexts, RouterOutlet } from '@angular/router';
 import { fader, slider } from './route-animations';
 @Component({
   selector: 'app-root',
@@ -16,11 +16,18 @@ import { fader, slider } from './route-animations';
 export class AppComponent {
   title = 'shipping-project';
 
-  prepareRoute(outlet: RouterOutlet) {
-    return (
-      outlet &&
-      outlet.activatedRouteData &&
-      outlet.activatedRouteData['animation']
-    );
+  // prepareRoute(outlet: RouterOutlet) {
+  //   return (
+  //     outlet &&
+  //     outlet.activatedRouteData &&
+  //     outlet.activatedRouteData['animation']
+  //   );
+  // }
+  constructor(private contexts: ChildrenOutletContexts) {}
+
+  getRouteAnimationData() {
+    return this.contexts.getContext('primary')?.route?.snapshot?.data?.[
+      'animation'
+    ];
   }
 }

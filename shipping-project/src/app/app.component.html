@@ -4,6 +4,11 @@
     <app-footer></app-footer>
   </div>
 </body>
-<div [@routeAnimations]="prepareRoute(outlet)">
+<router-outlet></router-outlet>
+
+<!-- <div [@routeAnimations]="prepareRoute(outlet)">
   <router-outlet #outlet="outlet"></router-outlet>
-</div>
+</div> -->
+<!-- <div [@routeAnimations]="getRouteAnimationData()">
+  <router-outlet></router-outlet>
+</div> -->
