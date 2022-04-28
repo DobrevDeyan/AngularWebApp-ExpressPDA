@@ -15,12 +15,12 @@ import { CarouselComponent } from './carousel/carousel.component';
 const routes: Routes = [
   {
     path: '',
-    component: WelcomeComponent,
+    component: CarouselComponent,
     data: { animation: 'isLeft' },
   },
   {
     path: 'welcome',
-    component: WelcomeComponent,
+    component: CarouselComponent,
     data: { animation: 'isRight' },
   },
   {

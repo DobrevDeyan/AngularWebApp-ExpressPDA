@@ -62,14 +62,7 @@ export class AuthService {
       window.alert(error.message);
     }
   }
-  // Send email verfificaiton when new user sign up
-  // SendVerificationMail() {
-  //   return this.afAuth.currentUser.then((u: any) => u.sendEmailVerification());
-  //   // .then(() => {
-  //   //   this.router.navigate(['verify-email-address']);
-  //   // });
-  // }
-  // && user.emailVerified !== false ? true : false;
+
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
     return user !== null;

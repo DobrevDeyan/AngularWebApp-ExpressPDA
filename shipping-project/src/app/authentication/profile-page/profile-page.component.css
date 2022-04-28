@@ -78,15 +78,11 @@ h2 {
 }
 
 #displayStoredProformas {
-  /* display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 100px)); */
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   color: white;
   text-align: left;
   line-height: 1.5em;
-}
-.testClass {
-  color: violet;
+  margin-bottom: 100px;
 }

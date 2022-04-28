@@ -5,7 +5,6 @@ footer {
   left: 0;
   padding: 1rem;
 }
-
 .footer-menu {
   text-align: left;
   display: flex;
@@ -130,5 +129,4 @@ footer .wave.wave4 {
   .footer-menu {
     text-align: center;
   }
-
 }
