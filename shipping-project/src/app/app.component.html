@@ -4,11 +4,8 @@
     <app-footer></app-footer>
   </div>
 </body>
-<router-outlet></router-outlet>
-
-<!-- <div [@routeAnimations]="prepareRoute(outlet)">
+<!-- <router-outlet></router-outlet> -->
+<main [@routeAnimations]="prepareRoute(outlet)">
   <router-outlet #outlet="outlet"></router-outlet>
-</div> -->
-<!-- <div [@routeAnimations]="getRouteAnimationData()">
-  <router-outlet></router-outlet>
-</div> -->
+</main>
+<!-- <app-carousel [images]="images" [autoSLide]="true"> </app-carousel> -->

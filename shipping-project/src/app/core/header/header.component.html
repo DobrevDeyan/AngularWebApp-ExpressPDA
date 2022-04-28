@@ -5,8 +5,9 @@
         <li class="logo"><a routerLink="welcome">DobrevInc.</a></li>
 
         <li class="burger" (click)="toggleMenu()">
-          <!-- <i class="material-icons">{{ isMenuOpen ? "close" : "menu" }}</i> -->
-          <span class="material-icons">{{ isMenuOpen ? "close" : "menu" }}</span>
+          <span class="material-icons">{{
+            isMenuOpen ? "close" : "menu"
+          }}</span>
         </li>
 
         <div class="try" [class.is-open]="isMenuOpen">

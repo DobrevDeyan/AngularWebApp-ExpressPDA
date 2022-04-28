@@ -24,6 +24,7 @@ import { RouterModule } from '@angular/router';
 import { ExportDataService } from './shared/export-data.service';
 import { FormsModule } from '@angular/forms';
 import { PdaCalculationsService } from './shared/pda-calculations.service';
+import { CarouselModule } from './carousel/carousel.module';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { PdaCalculationsService } from './shared/pda-calculations.service';
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(environment.firebase),
     FormsModule,
+    CarouselModule,
   ],
   providers: [AuthService, ExportDataService, PdaCalculationsService],
   bootstrap: [AppComponent, HeaderComponent, FooterComponent],

@@ -9,71 +9,69 @@ import { PricingComponent } from './pages/pricing/pricing.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { ProfilePageComponent } from './authentication/profile-page/profile-page.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
-import { AuthGuard } from './services/auth.guard';
 import { FaqComponent } from './pages/faq/faq.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 const routes: Routes = [
   {
     path: '',
     component: WelcomeComponent,
-    data: { animation: 'fader' },
+    data: { animation: 'isLeft' },
   },
   {
     path: 'welcome',
     component: WelcomeComponent,
-    data: { animation: 'fader' },
+    data: { animation: 'isRight' },
   },
   {
     path: 'home',
-    component: HomeComponent,
-    data: { animation: 'fader' },
+    component: CarouselComponent,
+    data: { animation: 'isLeft' },
   },
   {
     path: 'about',
     component: AboutComponent,
-    data: { animation: 'fader' },
+    data: { animation: 'isRight' },
   },
   {
     path: 'contacts',
     component: ContactsComponent,
-    data: { animation: 'fader' },
+    data: { animation: 'isLeft' },
   },
   {
     path: 'pricing',
     component: PricingComponent,
-    data: { animation: 'fader' },
+    data: { animation: 'isRight' },
   },
   {
     path: 'profile',
-    // canActivate: [AuthGuard],
     component: ProfilePageComponent,
-    // data: { animation: 'isLeft' },
-    data: { animation: 'fader' },
+    data: { animation: 'isLeft' },
   },
   {
     path: 'calculator',
     component: CalculatorComponent,
-    data: { animation: 'fader' },
+    data: { animation: 'isRight' },
   },
   {
     path: 'faq',
     component: FaqComponent,
-    data: { animation: 'fader' },
+    data: { animation: 'isLeft' },
   },
   {
     path: 'login',
     component: LoginFormComponent,
-    data: { animation: 'fader' },
+    data: { animation: 'isRight' },
   },
   {
     path: 'logout',
     component: WelcomeComponent,
-    data: { animation: 'fader' },
+    data: { animation: 'isLeft' },
   },
   {
     path: '**',
     component: ErrorPageComponent,
-    data: { animation: 'fader' },
+    data: { animation: 'isRight' },
   },
 ];
 

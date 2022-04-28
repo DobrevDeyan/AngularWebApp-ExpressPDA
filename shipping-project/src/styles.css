@@ -16,7 +16,7 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 html {
-  background-color: darkgoldenrod;
+  background-color: salmon;
   /* background: url("./assets/img/terminal.png") no-repeat center center fixed; */
   height: 100vh;
   -webkit-background-size: cover;
@@ -24,11 +24,6 @@ html {
   -o-background-size: cover;
   background-size: cover;
 }
-
-/* main {
-  text-align: center;
-  position: relative;
-} */
 
 .container {
   padding: 0 13%;
@@ -44,7 +39,7 @@ body {
   font-weight: bold;
 }
 h1 {
-  margin-top: 4.5em;
+  margin-top: 2.5em;
   font-size: 2.5em;
   text-transform: uppercase;
 }

@@ -4,10 +4,6 @@ import { Proforma } from './proforma';
   providedIn: 'root',
 })
 export class PdaCalculationsService {
-  constructor(public pdaService: PdaCalculationsService) {
-    this.pdaService = pdaService;
-  }
-
   configuration: Proforma = {
     vesselType: 'Other',
     operations: 'Other',
