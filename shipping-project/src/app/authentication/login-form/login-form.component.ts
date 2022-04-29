@@ -10,8 +10,6 @@ export class LoginFormComponent implements OnInit {
   constructor(public authService: AuthService) {}
 
   ngOnInit(): void {
-
-
     document.addEventListener('readystatechange', function () {
       if (document.readyState === 'complete') {
         init();
@@ -37,7 +35,5 @@ export class LoginFormComponent implements OnInit {
         });
       }
     }
-
-
   }
 }

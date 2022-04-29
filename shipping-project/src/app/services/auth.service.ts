@@ -20,8 +20,6 @@ export class AuthService {
     public router: Router,
     public ngZone: NgZone // NgZone service to remove outside scope warning
   ) {
-    /* Saving user data in localstorage when 
-    logged in and setting up null when logged out */
     this.afAuth.authState.subscribe((user) => {
       if (user) {
         this.userData = user;
@@ -33,8 +31,6 @@ export class AuthService {
       }
     });
   }
-
-  // Sign in with email/password
   async SignIn(email: string, password: string) {
     try {
       const result = await this.afAuth.signInWithEmailAndPassword(
@@ -49,8 +45,6 @@ export class AuthService {
       window.alert(error.message);
     }
   }
-
-  // Sign up with email/password
   async SignUp(email: string, password: string) {
     try {
       const result = await this.afAuth.createUserWithEmailAndPassword(
@@ -62,13 +56,10 @@ export class AuthService {
       window.alert(error.message);
     }
   }
-
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
     return user !== null;
   }
-
-  // Sign in with Google
   GoogleAuth() {
     return this.AuthLogin(new auth.GoogleAuthProvider()).then((res: any) => {
       if (res) {
@@ -76,7 +67,6 @@ export class AuthService {
       }
     });
   }
-
   // Auth logic to run auth providers
   AuthLogin(provider: any) {
     return this.afAuth
@@ -91,10 +81,6 @@ export class AuthService {
         window.alert(error);
       });
   }
-
-  /* Setting up user data when sign in with username/password, 
-  sign up with username/password and sign in with social auth  
-  provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
   SetUserData(user: any) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
       `users/${user.uid}`
@@ -110,8 +96,6 @@ export class AuthService {
       merge: true,
     });
   }
-
-  // Sign out
   SignOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');

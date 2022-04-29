@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { ExportDataService } from 'src/app/shared/export-data.service';
 import { PdaCalculationsService } from 'src/app/shared/pda-calculations.service';
 import { Proforma } from 'src/app/shared/proforma';
+import { EventEmitter } from 'stream';
 
 @Component({
   selector: 'app-calculator',
@@ -93,10 +94,18 @@ export class CalculatorComponent implements OnInit {
 
       // not working due currently
       // this.pdaService.calculateProforma(this.configuration);
-      // console.log(this.pdaService.calculateProforma())
+      // console.log(
+      //   this.pdaService.calculateProforma(this.configuration),
+      //   'from pda service'
+      // )
+      // this.pdaService.raiseDataEmitterEvent(this.configuration);
+      // console.log(
+      //   this.pdaService.raiseDataEmitterEvent(this.configuration),
+      //   'Working !'
+      // );
 
       this.calculateProforma(); // Generate PDA
-      this.exportdataService.exportProforma(this.configuration); // Export service to handle user proforma details in firestore
+      // this.exportdataService.exportProforma(this.configuration); // Export service to handle user proforma details in firestore
     } else {
       setTimeout(() => {
         alert('You need to provide the required vessel particulars.');

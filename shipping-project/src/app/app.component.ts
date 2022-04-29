@@ -1,6 +1,7 @@
 import { Component, HostBinding } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { slider } from './route-animations';
+import { PdaCalculationsService } from './shared/pda-calculations.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,9 +13,10 @@ import { slider } from './route-animations';
     '../assets/css/responsive.css',
   ],
   animations: [slider],
+  providers: [PdaCalculationsService],
 })
 export class AppComponent {
-  constructor() {}
+  constructor(private pdaService: PdaCalculationsService) {}
 
   prepareRoute(outlet: RouterOutlet) {
     return (

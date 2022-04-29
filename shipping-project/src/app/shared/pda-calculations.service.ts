@@ -1,9 +1,17 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
+import { computedProforma } from './computedProforma';
 import { Proforma } from './proforma';
 @Injectable({
   providedIn: 'root',
 })
 export class PdaCalculationsService {
+  constructor() {}
+
+  // dataEmitter = new EventEmitter<any>();
+  // raiseDataEmitterEvent(data: any) {
+  //   this.dataEmitter.emit(data);
+  // }
+
   configuration: Proforma = {
     vesselType: 'Other',
     operations: 'Other',
@@ -12,14 +20,7 @@ export class PdaCalculationsService {
     lengthOverall: 0,
     hoursAtBerth: 0,
   };
-  configurationDefaults: Proforma = {
-    vesselType: 'Other',
-    operations: 'Other',
-    specialState: 'None',
-    grossTonnage: 10000,
-    lengthOverall: 100,
-    hoursAtBerth: 10,
-  };
+  // computedProforma: computedProforma;
   computedProforma = {
     varnaEast: {
       tonnageDues: 0,
@@ -53,7 +54,7 @@ export class PdaCalculationsService {
     },
   };
 
-  calculateProforma(configuration) {
+  calculateProforma() {
     // ============================== VARNA EAST FORMULAS ============================== //
 
     // ===============  Tonnage dues ================= //
@@ -5032,6 +5033,7 @@ export class PdaCalculationsService {
       this.computedProforma.varnaWest.sailingPermission +
       this.computedProforma.varnaWest.marpol;
 
-    return this.computedProforma;
+    // return this.computedProforma;
+    console.log((this.computedProforma, 'from service function'));
   }
 }

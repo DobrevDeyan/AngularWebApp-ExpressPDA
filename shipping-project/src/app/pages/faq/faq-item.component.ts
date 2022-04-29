@@ -17,10 +17,6 @@ import { collapse } from 'src/app/route-animations';
 export class FaqItemComponent implements OnInit {
   @Input() title: string;
   showBody: boolean;
-  // initial: string;
-  // false: string;
-  // default: string;
-  // rotated: string;
 
   constructor() {}
 

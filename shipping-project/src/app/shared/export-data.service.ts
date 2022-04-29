@@ -8,7 +8,6 @@ import {
   query,
   where,
 } from 'firebase/firestore';
-import { url } from 'inspector';
 import { AuthService } from '../services/auth.service';
 import { Proforma } from './proforma';
 
@@ -52,6 +51,11 @@ export class ExportDataService {
       where('uid', '==', this.authService.userData.uid)
     );
 
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      renderProformas(doc);
+    });
+
     function renderProformas(doc) {
       let ul = document.createElement('ul');
       let type = document.createElement('li');
@@ -61,11 +65,12 @@ export class ExportDataService {
       let operations = document.createElement('li');
       let state = document.createElement('li');
 
-      ul.style.border = '2px dotted white';
+      ul.style.border = '2px solid white';
+      ul.style.borderRadius = '25px';
       ul.style.margin = '40px 20px';
       ul.style.minWidth = '250px';
       ul.style.padding = '35px 30px';
-      ul.style.background = '#00aeff';
+      ul.style.background = 'gray';
 
       type.textContent = 'Vessel type: ' + doc.data().vesselType;
       operations.textContent = 'Operations type: ' + doc.data().operations;
@@ -96,10 +101,7 @@ export class ExportDataService {
     const hidePara = document.querySelector('.para');
     (hidePara as HTMLElement).style.display = 'none';
 
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      renderProformas(doc);
-    });
+    
   }
 
   createDocName(s: string) {
