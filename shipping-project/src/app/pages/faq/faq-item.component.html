@@ -1,11 +1,12 @@
 <div class="item-header" (click)="toggle()">
   <div class="header-title">
     {{ title }}
-  <div class="arrow"><i class="fas fa-arrow-circle-down"></i></div>
-   
+    <div [@rotatedState]="!showBody ? 'default' : 'rotated'" class="arrow">
+      <i class="fas fa-arrow-circle-down"></i>
+    </div>
   </div>
 </div>
-<div *ngIf="showBody">
+<div [@smoothCollapse]="!showBody ? 'initial' : 'final'">
   <div class="item-body">
     <ng-content></ng-content>
   </div>

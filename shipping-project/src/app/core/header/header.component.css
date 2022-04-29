@@ -82,7 +82,7 @@ ul .logo {
 .day-title {
   padding-left: 15px;
   padding-right: 10px;
-  font-size: 20px;
+  font-size: 18px;
   /* margin-bottom: 10px;
   margin-right: 10px; */
 }
@@ -90,7 +90,7 @@ ul .logo {
   display: flex;
 }
 .ampm {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 ul li:last-child {
@@ -99,7 +99,7 @@ ul li:last-child {
 }
 
 .digital-time > div {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 /* RESPONSIVE MENU */
