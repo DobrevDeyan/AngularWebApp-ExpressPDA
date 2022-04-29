@@ -1,5 +1,5 @@
 .billing-section {
-  margin-top: 120px;
+  margin-top: 150px;
 }
 
 .container-fluid-two {
@@ -102,4 +102,10 @@
 .card:hover {
   text-decoration: none;
   transform: scale(1.1);
+}
+
+@media (max-width: 1120px) {
+  .container-fluid-two {
+    flex-direction: column;
+  }
 }

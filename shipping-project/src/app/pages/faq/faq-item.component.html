@@ -1,0 +1,12 @@
+<div class="item-header" (click)="toggle()">
+  <div class="header-title">
+    {{ title }}
+  <div class="arrow"><i class="fas fa-arrow-circle-down"></i></div>
+   
+  </div>
+</div>
+<div *ngIf="showBody">
+  <div class="item-body">
+    <ng-content></ng-content>
+  </div>
+</div>

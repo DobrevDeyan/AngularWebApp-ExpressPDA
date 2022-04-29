@@ -1,0 +1,36 @@
+item-header {
+  border-bottom: 1px solid rgb(202, 202, 202);
+  min-height: 50px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  padding: 10px;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow-wrap: break-word;
+  overflow: auto;
+  width: 100%;
+  font-weight: 600;
+  min-height: 50px;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.item-body {
+  min-height: 30px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  line-height: 1.5rem;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.arrow {
+  font-size: 18px;
+  justify-items: self-end;
+}

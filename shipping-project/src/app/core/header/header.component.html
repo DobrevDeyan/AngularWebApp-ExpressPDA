@@ -28,6 +28,17 @@
           <li *ngIf="isLoggedIn">
             <a routerLink="/logout" (click)="authService.SignOut()">Log out</a>
           </li>
+          <li>
+            <div class="digital-clock">
+              <div class="day-title">{{ day }}</div>
+              <div class="digital-time">
+                <div>{{ hour }}: &nbsp;</div>
+                <div>{{ minute }}: &nbsp;</div>
+                <div>{{ second }} &nbsp;</div>
+                <div class="ampm">{{ ampm }}</div>
+              </div>
+            </div>
+          </li>
         </div>
       </ul>
     </div>
