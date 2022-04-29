@@ -25,6 +25,7 @@ import { ExportDataService } from './shared/export-data.service';
 import { FormsModule } from '@angular/forms';
 import { PdaCalculationsService } from './shared/pda-calculations.service';
 import { CarouselModule } from './carousel/carousel.module';
+import { ClockComponent } from './clock/clock.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { CarouselModule } from './carousel/carousel.module';
     PricingComponent,
     ContactsComponent,
     HomeComponent,
+    ClockComponent,
   ],
   imports: [
     BrowserModule,
