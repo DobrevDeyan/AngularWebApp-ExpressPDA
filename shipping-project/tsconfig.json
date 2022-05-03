@@ -20,7 +20,7 @@
     "module": "es2020",
     "lib": ["es2020", "dom", "es2016", "esnext"],
     "noUnusedLocals": false,
-    "strictPropertyInitialization": false,
+    "strictPropertyInitialization": false
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

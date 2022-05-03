@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;800&display=swap);
 @import "assets/css/reset.css";
-@import "assets/css/typography.css";
-@import "assets/css/layout.css";
 @import "assets/css/responsive.css";
 
 /* Chrome, Safari, Edge, Opera */
@@ -10,48 +9,40 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+html {
+  background: #e63945;
+  /* background: #a8dadb; */
+  /* background: #f1faee; */
+  height: 100%;
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+}
 
 /* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
 }
-html {
-  background-color: lightslategray;
-  /* background: url("./assets/img/terminal.png") no-repeat center center fixed; */
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+body {
+  min-height: 100vh;
+  color: #fff;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
 }
 
 .container {
-  padding: 0 13%;
+  margin: 0 auto;
+  position: relative;
+  max-width: 1360px;
+  padding: 0 20px;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
 }
 
-body {
-  font-size: 1em;
-  font-family: "Big Shoulders Text", cursive;
-  color: black;
-  margin: 0 auto;
-  text-align: center;
-  /* height: 100%; */
-  font-weight: bold;
-  min-height: 100%;
-}
-h1 {
-  margin-top: 2.5em;
-  font-size: 2.5em;
-  text-transform: uppercase;
-}
-h2 {
-  margin-top: 1em;
-  margin-bottom: 3em;
-  font-size: 1.75em;
-}
-h1,
-h2 {
-  color: white;
-  text-align: left;
-  font-family: "Big Shoulders Text", cursive;
-  letter-spacing: -0.5px;
+.content {
+  flex: 1 0 auto;
 }
