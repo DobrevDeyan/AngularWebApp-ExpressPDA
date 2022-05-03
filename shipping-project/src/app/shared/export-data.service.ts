@@ -87,21 +87,12 @@ export class ExportDataService {
       ul.appendChild(hours);
 
       storedProformas.appendChild(ul);
-
-      // Has to be checked why css class is added to the element but still no visual changes
-
-      // const targetLi = document.getElementsByTagName('li');
-      // let arr = Array.from(targetLi);
-      // arr.map((e) => e.classList.add('testClass'));
-      // console.log(arr);
     }
 
     const hideButton = document.querySelector('.button-style');
     (hideButton as HTMLElement).style.display = 'none';
     const hidePara = document.querySelector('.para');
     (hidePara as HTMLElement).style.display = 'none';
-
-    
   }
 
   createDocName(s: string) {

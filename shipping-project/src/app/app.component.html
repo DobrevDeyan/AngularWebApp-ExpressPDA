@@ -1,11 +1,10 @@
-<div id="image">
-  <body>
-    <app-header></app-header>
-    <app-footer></app-footer>
-  </body>
-</div>
-<!-- <router-outlet></router-outlet> -->
-<main [@routeAnimations]="prepareRoute(outlet)">
+<body>
+  <app-header></app-header>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+  <app-footer></app-footer>
+</body>
+<!-- <main [@routeAnimations]="prepareRoute(outlet)">
   <router-outlet #outlet="outlet"></router-outlet>
-</main>
-<!-- <app-carousel [images]="images" [autoSLide]="true"> </app-carousel> -->
+</main> -->

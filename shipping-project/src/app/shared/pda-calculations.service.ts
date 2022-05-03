@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { computedProforma } from './computedProforma';
+import { computedProforma } from '../interfaces/computedProforma';
 import { Proforma } from './proforma';
 @Injectable({
   providedIn: 'root',

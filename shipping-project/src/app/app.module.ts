@@ -6,7 +6,6 @@ import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { CalculatorComponent } from './features/calculator/calculator.component';
 import { LoginFormComponent } from './authentication/login-form/login-form.component';
-import { PricingComponent } from './pages/pricing/pricing.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { CoreModule } from './core/core.module';
 import { FeaturesModule } from './features/features.module';
@@ -32,7 +31,6 @@ import { ClockComponent } from './clock/clock.component';
     AppComponent,
     CalculatorComponent,
     LoginFormComponent,
-    PricingComponent,
     ContactsComponent,
     HomeComponent,
     ClockComponent,

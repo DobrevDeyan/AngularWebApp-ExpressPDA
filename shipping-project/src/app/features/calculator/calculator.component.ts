@@ -105,7 +105,7 @@ export class CalculatorComponent implements OnInit {
       // );
 
       this.calculateProforma(); // Generate PDA
-      // this.exportdataService.exportProforma(this.configuration); // Export service to handle user proforma details in firestore
+      this.exportdataService.exportProforma(this.configuration); // Export service to handle user proforma details in firestore
     } else {
       setTimeout(() => {
         alert('You need to provide the required vessel particulars.');

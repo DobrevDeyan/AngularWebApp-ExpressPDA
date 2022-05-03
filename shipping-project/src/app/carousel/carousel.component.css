@@ -1,11 +1,15 @@
+.carousel-wrapper {
+  padding: 150px 0;
+  overflow: hidden;
+}
+
 .carousel-container {
   position: relative;
   margin: auto;
   text-align: center;
-  width: 700px;
+  width: 750px;
   border-radius: 15px;
   box-shadow: 0 8px 16px #dce1e1;
-  margin-top: 200px;
 }
 .carousel-container img {
   display: none;

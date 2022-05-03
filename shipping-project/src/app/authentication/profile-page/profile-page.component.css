@@ -15,7 +15,7 @@ p {
 .button-style {
   margin-top: 20px;
 }
-.button-style a {
+/* .button-style a {
   position: relative;
   display: inline-block;
   padding: 10px 30px;
@@ -27,21 +27,21 @@ p {
   color: #00aeff;
   text-decoration: none;
   overflow: hidden;
-}
-.button-style a span {
+} */
+/* .button-style a span {
   position: relative;
   z-index: 1;
   transition: 1s;
   color: white;
-}
-.button-style a:hover span {
+} */
+/* .button-style a:hover span {
   color: black;
   cursor: pointer;
 }
 .button-style a:hover {
   box-shadow: 0 0 0 5px #333;
-}
-.button-style a .wave5 {
+} */
+/* .button-style a .wave5 {
   position: absolute;
   top: calc(100% + 22px);
   left: 0;
@@ -70,13 +70,13 @@ p {
   100% {
     background-position-x: 118px;
   }
-}
+} */
 
-h2 {
+/* h2 {
   margin-bottom: 10px;
   font-size: 20px;
   margin: 0 auto;
-}
+} */
 
 #displayStoredProformas {
   display: flex;
