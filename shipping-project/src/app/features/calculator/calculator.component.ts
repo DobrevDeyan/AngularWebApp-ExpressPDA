@@ -1,7 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { ExportDataService } from 'src/app/shared/export-data.service';
-import { PdaCalculationsService } from 'src/app/shared/pda-calculations.service';
-import { Proforma } from 'src/app/shared/proforma';
+import { ExportDataService } from 'src/app/services/export-data.service';
+import { PdaCalculationsService } from 'src/app/services/pda-calculations.service';
+import { Proforma } from 'src/app/interfaces/proforma';
 import { EventEmitter } from 'stream';
 
 @Component({

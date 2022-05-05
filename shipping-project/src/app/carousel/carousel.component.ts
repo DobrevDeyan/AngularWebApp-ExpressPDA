@@ -52,17 +52,16 @@ export class CarouselComponent implements OnInit {
   images = [
     {
       imageSrc:
-        'https://cruisedig.com/sites/default/files/styles/twitter/public/2020-04/Port%20of%20Varna%2C%20Bulgaria.jpg?h=ddc58dd3&itok=BC1gM_s8',
+        'https://upload.wikimedia.org/wikipedia/commons/d/db/Port_of_Varna_East.jpg',
+      imageAlt: 'varnaPort',
+    },
+    {
+      imageSrc: 'https://www.viaseng.com/files/Пристанище%20снимка%202(6).jpg',
       imageAlt: 'varnaPort',
     },
     {
       imageSrc:
-        'https://upload.wikimedia.org/wikipedia/commons/c/c2/Varna_Port.jpg',
-      imageAlt: 'varnaPort',
-    },
-    {
-      imageSrc:
-        'https://media-cdn.tripadvisor.com/media/photo-s/1a/34/aa/f1/sunset-at-nemo-port-varna.jpg',
+        'https://www.umultirank.org/export/sites/default/.galleries/generic-images/Others/Winter-Calendar/port-4966229_1280.jpg_768826225.jpg',
       imageAlt: 'varnaPort',
     },
     {
@@ -72,8 +71,12 @@ export class CarouselComponent implements OnInit {
     },
 
     {
+      imageSrc: 'http://fs.tu-varna.bg/wp-content/uploads/KMT13.jpg',
+      imageAlt: 'varnaPort',
+    },
+    {
       imageSrc:
-        'https://cdn.aiidatapro.net/media/e8/97/1b/t780x490/e8971bf9311f742349b804f91d613f9a.jpg',
+        'https://port-varna.bg/assets/images/72570edf7d43574523ff4a885a71545f_019Varna_West.jpg',
       imageAlt: 'varnaPort',
     },
   ];

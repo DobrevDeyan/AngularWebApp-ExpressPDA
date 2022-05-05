@@ -7,16 +7,17 @@ import { ProfilePageComponent } from './authentication/profile-page/profile-page
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { FaqComponent } from './pages/faq/faq.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: CarouselComponent,
+    component: HomeComponent,
     data: { animation: 'isLeft' },
   },
   {
     path: 'home',
-    component: CarouselComponent,
+    component: HomeComponent,
     data: { animation: 'isLeft' },
   },
   {

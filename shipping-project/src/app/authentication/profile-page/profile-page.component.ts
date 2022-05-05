@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ExportDataService } from 'src/app/shared/export-data.service';
+import { ExportDataService } from 'src/app/services/export-data.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({

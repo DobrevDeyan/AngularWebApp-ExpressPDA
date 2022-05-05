@@ -20,9 +20,9 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
 import { AuthService } from './services/auth.service';
 import { RouterModule } from '@angular/router';
-import { ExportDataService } from './shared/export-data.service';
+import { ExportDataService } from './services/export-data.service';
 import { FormsModule } from '@angular/forms';
-import { PdaCalculationsService } from './shared/pda-calculations.service';
+import { PdaCalculationsService } from './services/pda-calculations.service';
 import { CarouselModule } from './carousel/carousel.module';
 
 @NgModule({

@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;800&display=swap);
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto+Slab&display=swap");
 @import "assets/css/reset.css";
 @import "assets/css/responsive.css";
 
@@ -11,6 +12,7 @@ input::-webkit-inner-spin-button {
 }
 html {
   background: #e63945;
+  /* background: rgba(139, 107, 44, 0.755); */
   height: 100%;
   font-family: "Open Sans", sans-serif;
   font-size: 18px;
@@ -37,8 +39,6 @@ body {
   position: relative;
   max-width: 1360px;
   padding: 0 20px;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
 }
 
 .content {

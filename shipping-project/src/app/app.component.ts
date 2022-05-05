@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { slider } from './route-animations';
-import { PdaCalculationsService } from './shared/pda-calculations.service';
+import { PdaCalculationsService } from './services/pda-calculations.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

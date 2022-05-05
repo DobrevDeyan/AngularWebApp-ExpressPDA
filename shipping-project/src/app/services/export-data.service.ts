@@ -9,7 +9,7 @@ import {
   where,
 } from 'firebase/firestore';
 import { AuthService } from '../services/auth.service';
-import { Proforma } from './proforma';
+import { Proforma } from '../interfaces/proforma';
 
 @Injectable({
   providedIn: 'root',
