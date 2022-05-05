@@ -6,7 +6,6 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
 import { ProfilePageComponent } from './authentication/profile-page/profile-page.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { FaqComponent } from './pages/faq/faq.component';
-import { CarouselComponent } from './carousel/carousel.component';
 import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
