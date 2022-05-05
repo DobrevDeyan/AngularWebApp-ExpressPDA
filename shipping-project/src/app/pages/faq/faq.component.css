@@ -1,4 +1,7 @@
 /*=================== FAQ PAGE ===================== */
+.faq-wrapper {
+  padding: 150px 0;
+}
 .card {
   margin: 0 auto;
   margin-top: 60px;

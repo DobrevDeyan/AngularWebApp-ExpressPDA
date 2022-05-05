@@ -1,295 +1,297 @@
-<main>
-  <div class="container">
-    <p>
-      Please follow the below input fields and provide exact particulars basis
-      ship`s valid certificates
-    </p>
-    <div class="form-wrapper">
-      <form class="left">
-        <legend>vesselType</legend>
-        <select
-          id="vesselType"
-          name="vessel-type"
-          [(ngModel)]="configuration.vesselType"
-        >
-          <option value="Other">Other</option>
-          <option value="Tanker">Tanker</option>
-          <option value="Container">Container</option>
-          <option value="Passenger">Passenger</option>
-          <option value="Docking-repairs">Docking</option>
-          <option value="Navy">Navy</option>
-        </select>
-
-        <legend>operations</legend>
-        <select
-          id="operations"
-          name="operations"
-          [(ngModel)]="configuration.operations"
-        >
-          <option value="Other">Other</option>
-          <option value="Loading">Loading</option>
-          <option value="Discharging">Discharging</option>
-        </select>
-
-        <legend>special state</legend>
-        <select
-          id="conditions"
-          name="conditions"
-          [(ngModel)]="configuration.specialState"
-        >
-          <option value="None">None</option>
-          <option value="Dg cargo in">DG cargo in</option>
-          <option value="DG cargo out">DG cargo out</option>
-          <option value="DG cargo in/out">DG cargo in/out</option>
-          <option value="Overtime">Overtime</option>
-        </select>
-      </form>
-      <form class="right" id="frm">
-        <label>GT/RGT</label>
-        <input
-          class="input1"
-          type="number"
-          onfocus="this.value=''"
-          [(ngModel)]="configuration.grossTonnage"
-          [ngModelOptions]="{ standalone: true }"
-        />
-        <label>LOA</label>
-        <input
-          class="input2"
-          type="number"
-          onfocus="this.value=''"
-          [(ngModel)]="configuration.lengthOverall"
-          [ngModelOptions]="{ standalone: true }"
-        />
-        <label>HRS AT BERTH</label>
-        <input
-          class="input3"
-          type="number"
-          onfocus="this.value=''"
-          [(ngModel)]="configuration.hoursAtBerth"
-          [ngModelOptions]="{ standalone: true }"
-        />
-      </form>
-    </div>
-    <div class="info-wrapper">
-      <button (click)="generateProforma()" type="button" class="button-style">
-        <a>
-          <span>Generate PDA</span>
-          <div class="wave5"></div>
-        </a>
-      </button>
-      <button (click)="resetConfig()" type="button" class="resetButton">
-        Reset
-      </button>
-    </div>
-  </div>
-</main>
-<div class="container">
-  <div class="table-wrapper">
-    <table>
-      <tbody>
-        <tr>
-          <td colspan="2">varna east port</td>
-        </tr>
-        <tr>
-          <th scope="col">services</th>
-          <th scope="col">price in eur</th>
-        </tr>
-        <tr>
-          <td>tonnage dues</td>
-          <td>
-            {{ computedProforma.varnaEast.tonnageDues }}
-          </td>
-        </tr>
-        <tr>
-          <td>berth dues</td>
-          <td>
-            {{ computedProforma.varnaEast.berthDues }}
-          </td>
-        </tr>
-        <tr>
-          <td>pilotage In</td>
-          <td>
-            {{ computedProforma.varnaEast.pilotageIn }}
-          </td>
-        </tr>
-        <tr>
-          <td>pilotage out</td>
-          <td>
-            {{ computedProforma.varnaEast.pilotageOut }}
-          </td>
-        </tr>
-        <tr>
-          <td>towage in</td>
-          <td>
-            {{ computedProforma.varnaEast.towageIn }}
-          </td>
-        </tr>
-        <tr>
-          <td>towage out</td>
-          <td>
-            {{ computedProforma.varnaEast.towageOut }}
-          </td>
-        </tr>
-        <tr>
-          <td>mooring</td>
-          <td>
-            {{ computedProforma.varnaEast.mooring }}
-          </td>
-        </tr>
-        <tr>
-          <td>unmooring</td>
-          <td>
-            {{ computedProforma.varnaEast.unmooring }}
-          </td>
-        </tr>
-        <tr>
-          <td>channel dues</td>
-          <td>
-            {{ computedProforma.varnaEast.channelDues }}
-          </td>
-        </tr>
-        <tr>
-          <td>light dues</td>
-          <td>
-            {{ computedProforma.varnaEast.lightDues }}
-          </td>
-        </tr>
-        <tr>
-          <td>sailing permission</td>
-          <td>
-            {{ computedProforma.varnaEast.sailingPermission }}
-          </td>
-        </tr>
-        <tr>
-          <td>marpol 73/78 fee</td>
-          <td>
-            {{ computedProforma.varnaEast.marpol }}
-          </td>
-        </tr>
-        <!-- <tr class="cargo-verification">
-          <td>cargo plan verification</td>
-          <td id="ve-cargo-plan-verification"></td>
-        </tr>
-        <tr class="vessel-tanker">
-          <td>laying of oil booms</td>
-          <td id="ve-oilbooming"></td>
-        </tr> -->
-        <tr>
-          <td>total:</td>
-          <td>
-            {{ computedProforma.varnaEast.total }}
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <table>
-      <tbody>
-        <tr>
-          <td colspan="2">varna west port</td>
-        </tr>
-        <tr>
-          <th scope="col">services</th>
-          <th scope="col">price in eur</th>
-        </tr>
-        <tr>
-          <td>tonnage dues</td>
-          <td>
-            {{ computedProforma.varnaWest.tonnageDues }}
-          </td>
-        </tr>
-        <tr>
-          <td>berth dues</td>
-          <td>
-            {{ computedProforma.varnaWest.berthDues }}
-          </td>
-        </tr>
-        <tr>
-          <td>pilotage In</td>
-          <td>
-            {{ computedProforma.varnaWest.pilotageIn }}
-          </td>
-        </tr>
-        <tr>
-          <td>pilotage out</td>
-          <td>
-            {{ computedProforma.varnaWest.pilotageOut }}
-          </td>
-        </tr>
-        <tr>
-          <td>towage in</td>
-          <td>
-            {{ computedProforma.varnaWest.towageIn }}
-          </td>
-        </tr>
-        <tr>
-          <td>towage out</td>
-          <td>
-            {{ computedProforma.varnaWest.towageOut }}
-          </td>
-        </tr>
-        <tr>
-          <td>mooring</td>
-          <td>
-            {{ computedProforma.varnaWest.mooring }}
-          </td>
-        </tr>
-        <tr>
-          <td>unmooring</td>
-          <td>
-            {{ computedProforma.varnaWest.unmooring }}
-          </td>
-        </tr>
-        <tr>
-          <td>channel dues</td>
-          <td>
-            {{ computedProforma.varnaWest.channelDues }}
-          </td>
-        </tr>
-        <tr>
-          <td>light dues</td>
-          <td>
-            {{ computedProforma.varnaWest.lightDues }}
-          </td>
-        </tr>
-        <tr>
-          <td>sailing permission</td>
-          <td>
-            {{ computedProforma.varnaWest.sailingPermission }}
-          </td>
-        </tr>
-        <tr>
-          <td>marpol 73/78 fee</td>
-          <td>
-            {{ computedProforma.varnaWest.marpol }}
-          </td>
-        </tr>
-        <!-- <tr class="cargo-verification">
-          <td>cargo plan verification</td>
-          <td id="vw-cargo-plan-verification"></td>
-        </tr>
-        <tr class="vessel-tanker">
-          <td>laying of oil booms</td>
-          <td id="vw-oilbooming"></td>
-        </tr> -->
-        <tr>
-          <td>total:</td>
-          <td>
-            {{ computedProforma.varnaWest.total }}
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="useful-info">
+<div class="calculator-wrapper">
+  <main>
+    <div class="container">
       <p>
-        Dear Customers, Kindly be guided that the provided expenses are up to
-        date with currently in force tariffs from local providers. Basis the
-        type of operation, cargo and taking into account local compliances, the
-        provided values can be subject to change. For more information about
-        specific inquiries, do not hesitate to
-        <a href="contact_us.html">contact us</a>.
+        Please follow the below input fields and provide exact particulars basis
+        ship`s valid certificates
       </p>
+      <div class="form-wrapper">
+        <form class="left">
+          <legend>vesselType</legend>
+          <select
+            id="vesselType"
+            name="vessel-type"
+            [(ngModel)]="configuration.vesselType"
+          >
+            <option value="Other">Other</option>
+            <option value="Tanker">Tanker</option>
+            <option value="Container">Container</option>
+            <option value="Passenger">Passenger</option>
+            <option value="Docking-repairs">Docking</option>
+            <option value="Navy">Navy</option>
+          </select>
+
+          <legend>operations</legend>
+          <select
+            id="operations"
+            name="operations"
+            [(ngModel)]="configuration.operations"
+          >
+            <option value="Other">Other</option>
+            <option value="Loading">Loading</option>
+            <option value="Discharging">Discharging</option>
+          </select>
+
+          <legend>special state</legend>
+          <select
+            id="conditions"
+            name="conditions"
+            [(ngModel)]="configuration.specialState"
+          >
+            <option value="None">None</option>
+            <option value="Dg cargo in">DG cargo in</option>
+            <option value="DG cargo out">DG cargo out</option>
+            <option value="DG cargo in/out">DG cargo in/out</option>
+            <option value="Overtime">Overtime</option>
+          </select>
+        </form>
+        <form class="right" id="frm">
+          <label>GT/RGT</label>
+          <input
+            class="input1"
+            type="number"
+            onfocus="this.value=''"
+            [(ngModel)]="configuration.grossTonnage"
+            [ngModelOptions]="{ standalone: true }"
+          />
+          <label>LOA</label>
+          <input
+            class="input2"
+            type="number"
+            onfocus="this.value=''"
+            [(ngModel)]="configuration.lengthOverall"
+            [ngModelOptions]="{ standalone: true }"
+          />
+          <label>HRS AT BERTH</label>
+          <input
+            class="input3"
+            type="number"
+            onfocus="this.value=''"
+            [(ngModel)]="configuration.hoursAtBerth"
+            [ngModelOptions]="{ standalone: true }"
+          />
+        </form>
+      </div>
+      <div class="info-wrapper">
+        <button (click)="generateProforma()" type="button" class="button-style">
+          <a>
+            <span>Generate PDA</span>
+            <div class="wave5"></div>
+          </a>
+        </button>
+        <button (click)="resetConfig()" type="button" class="resetButton">
+          Reset
+        </button>
+      </div>
+    </div>
+  </main>
+  <div class="container">
+    <div class="table-wrapper">
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="2">varna east port</td>
+          </tr>
+          <tr>
+            <th scope="col">services</th>
+            <th scope="col">price in eur</th>
+          </tr>
+          <tr>
+            <td>tonnage dues</td>
+            <td>
+              {{ computedProforma.varnaEast.tonnageDues }}
+            </td>
+          </tr>
+          <tr>
+            <td>berth dues</td>
+            <td>
+              {{ computedProforma.varnaEast.berthDues }}
+            </td>
+          </tr>
+          <tr>
+            <td>pilotage In</td>
+            <td>
+              {{ computedProforma.varnaEast.pilotageIn }}
+            </td>
+          </tr>
+          <tr>
+            <td>pilotage out</td>
+            <td>
+              {{ computedProforma.varnaEast.pilotageOut }}
+            </td>
+          </tr>
+          <tr>
+            <td>towage in</td>
+            <td>
+              {{ computedProforma.varnaEast.towageIn }}
+            </td>
+          </tr>
+          <tr>
+            <td>towage out</td>
+            <td>
+              {{ computedProforma.varnaEast.towageOut }}
+            </td>
+          </tr>
+          <tr>
+            <td>mooring</td>
+            <td>
+              {{ computedProforma.varnaEast.mooring }}
+            </td>
+          </tr>
+          <tr>
+            <td>unmooring</td>
+            <td>
+              {{ computedProforma.varnaEast.unmooring }}
+            </td>
+          </tr>
+          <tr>
+            <td>channel dues</td>
+            <td>
+              {{ computedProforma.varnaEast.channelDues }}
+            </td>
+          </tr>
+          <tr>
+            <td>light dues</td>
+            <td>
+              {{ computedProforma.varnaEast.lightDues }}
+            </td>
+          </tr>
+          <tr>
+            <td>sailing permission</td>
+            <td>
+              {{ computedProforma.varnaEast.sailingPermission }}
+            </td>
+          </tr>
+          <tr>
+            <td>marpol 73/78 fee</td>
+            <td>
+              {{ computedProforma.varnaEast.marpol }}
+            </td>
+          </tr>
+          <!-- <tr class="cargo-verification">
+            <td>cargo plan verification</td>
+            <td id="ve-cargo-plan-verification"></td>
+          </tr>
+          <tr class="vessel-tanker">
+            <td>laying of oil booms</td>
+            <td id="ve-oilbooming"></td>
+          </tr> -->
+          <tr>
+            <td>total:</td>
+            <td>
+              {{ computedProforma.varnaEast.total }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="2">varna west port</td>
+          </tr>
+          <tr>
+            <th scope="col">services</th>
+            <th scope="col">price in eur</th>
+          </tr>
+          <tr>
+            <td>tonnage dues</td>
+            <td>
+              {{ computedProforma.varnaWest.tonnageDues }}
+            </td>
+          </tr>
+          <tr>
+            <td>berth dues</td>
+            <td>
+              {{ computedProforma.varnaWest.berthDues }}
+            </td>
+          </tr>
+          <tr>
+            <td>pilotage In</td>
+            <td>
+              {{ computedProforma.varnaWest.pilotageIn }}
+            </td>
+          </tr>
+          <tr>
+            <td>pilotage out</td>
+            <td>
+              {{ computedProforma.varnaWest.pilotageOut }}
+            </td>
+          </tr>
+          <tr>
+            <td>towage in</td>
+            <td>
+              {{ computedProforma.varnaWest.towageIn }}
+            </td>
+          </tr>
+          <tr>
+            <td>towage out</td>
+            <td>
+              {{ computedProforma.varnaWest.towageOut }}
+            </td>
+          </tr>
+          <tr>
+            <td>mooring</td>
+            <td>
+              {{ computedProforma.varnaWest.mooring }}
+            </td>
+          </tr>
+          <tr>
+            <td>unmooring</td>
+            <td>
+              {{ computedProforma.varnaWest.unmooring }}
+            </td>
+          </tr>
+          <tr>
+            <td>channel dues</td>
+            <td>
+              {{ computedProforma.varnaWest.channelDues }}
+            </td>
+          </tr>
+          <tr>
+            <td>light dues</td>
+            <td>
+              {{ computedProforma.varnaWest.lightDues }}
+            </td>
+          </tr>
+          <tr>
+            <td>sailing permission</td>
+            <td>
+              {{ computedProforma.varnaWest.sailingPermission }}
+            </td>
+          </tr>
+          <tr>
+            <td>marpol 73/78 fee</td>
+            <td>
+              {{ computedProforma.varnaWest.marpol }}
+            </td>
+          </tr>
+          <!-- <tr class="cargo-verification">
+            <td>cargo plan verification</td>
+            <td id="vw-cargo-plan-verification"></td>
+          </tr>
+          <tr class="vessel-tanker">
+            <td>laying of oil booms</td>
+            <td id="vw-oilbooming"></td>
+          </tr> -->
+          <tr>
+            <td>total:</td>
+            <td>
+              {{ computedProforma.varnaWest.total }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="useful-info">
+        <p>
+          Dear Customers, Kindly be guided that the provided expenses are up to
+          date with currently in force tariffs from local providers. Basis the
+          type of operation, cargo and taking into account local compliances,
+          the provided values can be subject to change. For more information
+          about specific inquiries, do not hesitate to
+          <a href="contact_us.html">contact us</a>.
+        </p>
+      </div>
     </div>
   </div>
 </div>

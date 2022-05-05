@@ -1,43 +1,45 @@
-<section class="carousel-wrapper">
-  <h1>Port Varna PDA Calculator<br />Proforma disbursement account</h1>
-  <h2>
-    Voyage estimates at your fingertips. Easy to use, 24/7 online tool
-    <br />which provides port costs and restrictions for major facilities in
-    Varna port.
-  </h2>
+<div class="container">
+  <section class="carousel-wrapper">
+    <h1>Port Varna PDA Calculator<br />Proforma disbursement account</h1>
+    <h2>
+      Voyage estimates at your fingertips. Easy to use, 24/7 online tool
+      <br />which provides port costs and restrictions for major facilities in
+      Varna port.
+    </h2>
 
-  <div class="carousel-wr">
-    <div *ngIf="images && images.length > 0" class="carousel-container">
-      <img
-        *ngFor="let image of images; let i = index"
-        [src]="image.imageSrc"
-        [alt]="image.imageAlt"
-        [ngClass]="{ 'image-active': selectedIndex === i }"
-        class="fade"
-      />
-      <div *ngIf="indicators" class="carousel-dot-container">
-        <span
-          *ngFor="let dot of images; let i = index"
-          class="dot"
-          [ngClass]="{ active: selectedIndex === i }"
-          (click)="selectImage(i)"
+    <div class="carousel-wr">
+      <div *ngIf="images && images.length > 0" class="carousel-container">
+        <img
+          *ngFor="let image of images; let i = index"
+          [src]="image.imageSrc"
+          [alt]="image.imageAlt"
+          [ngClass]="{ 'image-active': selectedIndex === i }"
+          class="fade"
+        />
+        <div *ngIf="indicators" class="carousel-dot-container">
+          <span
+            *ngFor="let dot of images; let i = index"
+            class="dot"
+            [ngClass]="{ active: selectedIndex === i }"
+            (click)="selectImage(i)"
+          >
+          </span>
+        </div>
+        <button
+          *ngIf="controls"
+          class="btn-carousel btn-prev"
+          (click)="onPrevClick()"
         >
-        </span>
+          <i class="fas fa-arrow-circle-left icon-carousel icon-prev"> </i>
+        </button>
+        <button
+          *ngIf="controls"
+          class="btn-carousel btn-next"
+          (click)="onNextClick()"
+        >
+          <i class="fas fa-arrow-circle-right icon-carousel icon-next"> </i>
+        </button>
       </div>
-      <button
-        *ngIf="controls"
-        class="btn-carousel btn-prev"
-        (click)="onPrevClick()"
-      >
-        <i class="fas fa-arrow-circle-left icon-carousel icon-prev"> </i>
-      </button>
-      <button
-        *ngIf="controls"
-        class="btn-carousel btn-next"
-        (click)="onNextClick()"
-      >
-        <i class="fas fa-arrow-circle-right icon-carousel icon-next"> </i>
-      </button>
     </div>
-  </div>
-</section>
+  </section>
+</div>

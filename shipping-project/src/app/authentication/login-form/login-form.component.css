@@ -1,9 +1,12 @@
+.login-wrapper2 {
+  padding: 150px 0;
+}
+
 .login-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   transition: 0.5s;
-  margin-top: 240px;
 }
 
 .container-2 {

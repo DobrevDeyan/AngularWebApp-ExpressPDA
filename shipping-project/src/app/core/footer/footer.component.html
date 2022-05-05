@@ -1,36 +1,36 @@
 <footer>
   <div class="container">
-    <ul class="footer-menu">
-      <li><a routerLink="home">home</a></li>
-      <li><a routerLink="about">about</a></li>
-      <li>
-        <a href="#" class="copyright"
-          ><span class="copy">&copy; </span> Copyright
-          {{ currentDate | date: "yyyy" }} DobrevInc.
-        </a>
-      </li>
-    </ul>
-    <ul class="footer-menu">
-      <li><a routerLink="faq">faq</a></li>
-      <li><a routerLink="pricing">pricing</a></li>
-      <li><a routerLink="contacts">contacts</a></li>
-    </ul>
-    <ul class="footer-menu">
-      <li>
-        <a href="https://www.linkedin.com/in/deyan-dobrev-077932142/"
-          ><i class="fab fa-linkedin"></i>linkedin</a
-        >
-      </li>
-      <li>
-        <a href="https://www.facebook.com/deyan.dobrev"
-          ><i class="fab fa-facebook-square"></i>facebook</a
-        >
-      </li>
-      <li>
-        <a href="https://www.instagram.com/deqn.dobrev.7/"
-          ><i class="fab fa-instagram"></i>instagram</a
-        >
-      </li>
-    </ul>
+    <div class="footer-main">
+      <div class="footer-column">
+        <a routerLink="faq">Frequently asked Questions</a>
+        <a routerLink="contacts">Useful information</a>
+      </div>
+      <div class="footer-column">
+        <a routerLink="home">Agency services</a>
+        <a routerLink="about">Port information</a>
+      </div>
+      <div class="footer-column">
+        <a routerLink="home">Email us</a>
+        <a routerLink="about">Contacts</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <a href="#" class="copyright"
+        ><span class="copy">&copy; </span>
+        {{ currentDate | date: "yyyy" }} Express PDA Ltd. |
+        <a href="#">Privacy & Terms</a>
+      </a>
+      <a
+        href="https://www.linkedin.com/in/deyan-dobrev-077932142/"
+        class="footer-social"
+        ><i class="fab fa-linkedin"></i
+      ></a>
+      <a href="https://www.facebook.com/deyan.dobrev" class="footer-social"
+        ><i class="fab fa-facebook-square"></i
+      ></a>
+      <a href="https://www.instagram.com/deqn.dobrev.7/" class="footer-social"
+        ><i class="fab fa-instagram"></i
+      ></a>
+    </div>
   </div>
 </footer>

@@ -22,7 +22,7 @@ const routes: Routes = [
   {
     path: 'contacts',
     component: ContactsComponent,
-    data: { animation: 'isLeft' },
+    data: { animation: 'isRight' },
   },
   {
     path: 'profile',
@@ -47,7 +47,7 @@ const routes: Routes = [
   {
     path: '**',
     component: ErrorPageComponent,
-    data: { animation: 'isRight' },
+    data: { animation: 'isLeft' },
   },
 ];
 
