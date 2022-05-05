@@ -13,6 +13,18 @@ export class HeaderComponent {
     return this.authService.isLoggedIn;
   }
 
+  public hamburgerActive = false;
+  public checkActive() {
+    this.hamburgerActive = !this.hamburgerActive;
+
+    let navState = document.getElementById('my-top-nav');
+    if (navState.className === 'top-nav') {
+      navState.className += ' responsive';
+    } else {
+      navState.className = 'top-nav';
+    }
+  }
+
   // private daysArray = [
   //   'Sunday',
   //   'Monday',

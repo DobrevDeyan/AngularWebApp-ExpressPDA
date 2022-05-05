@@ -38,7 +38,7 @@
         </svg>
       </a>
     </div>
-    <nav>
+    <nav class="top-nav" id="my-top-nav">
       <ul>
         <li><a routerLink="/home">home</a></li>
         <li><a routerLink="/contacts">contacts</a></li>
@@ -56,18 +56,19 @@
         <li *ngIf="isLoggedIn">
           <a routerLink="/logout" (click)="authService.SignOut()">Log out</a>
         </li>
-        <!-- <li>
-                  <div class="digital-clock">
-                    <div class="day-title">{{ day }}</div>
-                    <div class="digital-time">
-                      <div>{{ hour }}: &nbsp;</div>
-                      <div>{{ minute }}: &nbsp;</div>
-                      <div>{{ second }} &nbsp;</div>
-                      <div class="ampm">{{ ampm }}</div>
-                    </div>
-                  </div>
-                </li> -->
       </ul>
     </nav>
+
+    <button
+      class="hamburger hamburger--spin"
+      type="button"
+      [class.is-active]="hamburgerActive == true"
+      (click)="checkActive()"
+    >
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    <div class="break"></div>
   </header>
 </div>
