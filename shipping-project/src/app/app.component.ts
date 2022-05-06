@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { slider } from './route-animations';
-import { PdaCalculationsService } from './services/pda-calculations.service';
+import { ProformaCalculatorService } from './services/proforma-calculator.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,10 +11,10 @@ import { PdaCalculationsService } from './services/pda-calculations.service';
     '../assets/css/responsive.css',
   ],
   animations: [slider],
-  providers: [PdaCalculationsService],
+  providers: [ProformaCalculatorService],
 })
 export class AppComponent {
-  constructor(private pdaService: PdaCalculationsService) {}
+  constructor(private calculator: ProformaCalculatorService) {}
 
   prepareRoute(outlet: RouterOutlet) {
     return (

@@ -1,16 +1,7 @@
-/* MENU AND VESSEL DETAILS  */
-
-.calculator-wrapper {
+/* .calculator-wrapper {
   padding: 150px 0;
-}
-
-/* .main-intro {
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 100px;
-  overflow: hidden;
-  color: white;
 } */
+
 main > div > p:nth-child(1) {
   margin-top: 50px;
 }

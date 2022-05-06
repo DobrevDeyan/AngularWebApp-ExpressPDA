@@ -20,9 +20,9 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
 import { AuthService } from './services/auth.service';
 import { RouterModule } from '@angular/router';
-import { ExportDataService } from './services/export-data.service';
+import { ExportUserProformasService } from './services/export-user-proformas.service';
 import { FormsModule } from '@angular/forms';
-import { PdaCalculationsService } from './services/pda-calculations.service';
+import { ImportUserProformasService } from './services/import-user-proformas.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +48,11 @@ import { PdaCalculationsService } from './services/pda-calculations.service';
     AngularFireModule.initializeApp(environment.firebase),
     FormsModule,
   ],
-  providers: [AuthService, ExportDataService, PdaCalculationsService],
+  providers: [
+    AuthService,
+    ExportUserProformasService,
+    ImportUserProformasService,
+  ],
   bootstrap: [AppComponent, HeaderComponent, FooterComponent],
 })
 export class AppModule {}

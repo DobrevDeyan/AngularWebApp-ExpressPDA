@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ExportDataService } from 'src/app/services/export-data.service';
+import { ImportUserProformasService } from 'src/app/services/import-user-proformas.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class ProfilePageComponent implements OnInit {
   constructor(
-    public exportdataService: ExportDataService,
+    public importProforma: ImportUserProformasService,
     public authService: AuthService
   ) {}
 
@@ -18,6 +18,6 @@ export class ProfilePageComponent implements OnInit {
   ngOnInit(): void {}
 
   getProforma() {
-    this.exportdataService.getProformas();
+    this.importProforma.getProformas();
   }
 }
