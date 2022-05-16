@@ -1,0 +1,95 @@
+<div class="container">
+  <!--  -->
+</div>
+
+<div class="form signupForm">
+  <form>
+    <h3>Sign Up</h3>
+    <input
+      type="email"
+      class="formControl"
+      placeholder="Email Address"
+      #userEmail
+      required
+    />
+    <input
+      type="userName"
+      class="formControl"
+      placeholder="User Name"
+      #userName
+      required
+    />
+    <input
+      type="password"
+      class="formControl"
+      placeholder="Password"
+      #userPwd
+      required
+    />
+    <input type="password" placeholder="Confirm Password" required />
+    <input
+      type="button"
+      class="btn btnPrimary"
+      value="Sign Up"
+      (click)="authService.SignUp(userEmail.value, userPwd.value)"
+      routerLink="/verify-email-address"
+    />
+    <button
+      type="button"
+      class="btn googleBtn"
+      (click)="authService.GoogleAuth()"
+    >
+      <i class="fab fa-google-plus-g"></i>
+      Continue with Google
+    </button>
+  </form>
+  <!-- <div class="authBlock">
+    <h1>Sign Up</h1>
+    <div class="formGroup">
+      <input
+        type="email"
+        class="formControl"
+        placeholder="Email Address"
+        #userEmail
+        required
+      />
+    </div>
+
+    <div class="formGroup">
+      <input
+        type="password"
+        class="formControl"
+        placeholder="Password"
+        #userPwd
+        required
+      />
+    </div>
+    <div class="formGroup">
+      <input
+        type="button"
+        class="btn btnPrimary"
+        value="Sign Up"
+        (click)="authService.SignUp(userEmail.value, userPwd.value)"
+      />
+    </div>
+    <div class="formGroup">
+      <span class="or"><span class="orInner">Or</span></span>
+    </div>
+    <div class="formGroup">
+      <button
+        type="button"
+        class="btn googleBtn"
+        (click)="authService.GoogleAuth()"
+      >
+        <i class="fab fa-google-plus-g"></i>
+        Continue with Google
+      </button>
+    </div>
+  </div>
+  <div class="redirectToLogin">
+    <span
+      >Already have an account?
+      <span class="redirect" routerLink="/sign-in">Log In</span></span
+    >
+  </div> -->
+</div>
