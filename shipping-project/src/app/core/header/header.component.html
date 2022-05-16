@@ -43,18 +43,18 @@
         <li><a routerLink="/home">home</a></li>
         <li><a routerLink="/contacts">contacts</a></li>
         <li><a routerLink="/faq">faq</a></li>
-        <li class="logged" *ngIf="!isLoggedIn">
-          <a routerLink="/login">Login/Register</a>
-        </li>
-        <li *ngIf="isLoggedIn">
-          <!-- <a routerLink="/profile">{{ authService.userData?.uid }}</a> -->
-          <a routerLink="/profile">User</a>
+        <li *ngIf="!isLoggedIn">
+          <a routerLink="/sign-in">Login/Register</a>
         </li>
         <li *ngIf="isLoggedIn">
           <a routerLink="/calculator">PDA</a>
         </li>
         <li *ngIf="isLoggedIn">
-          <a routerLink="/logout" (click)="authService.SignOut()">Log out</a>
+          <a routerLink="/profile">{{ this.authService.userData.email }}</a>
+          <!-- <a routerLink="/profile">User</a> -->
+        </li>
+        <li *ngIf="isLoggedIn">
+          <a (click)="authService.SignOut()">Log out</a>
         </li>
       </ul>
     </nav>

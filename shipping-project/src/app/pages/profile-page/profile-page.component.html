@@ -1,0 +1,39 @@
+<div class="profile-wrapper">
+  <div class="container">
+    <main>
+      <h1>User Profile</h1>
+      <img
+        src="{{
+          this.authService.userData.photoURL
+            ? this.authService.userData.photoURL
+            : '../../../assets/img/user-solid.svg'
+        }}"
+        alt="{{ this.authService.userData.displayName }}"
+      />
+      <div class="media-body">
+        <h1>
+          Hello:
+          <strong>{{
+            this.authService.userData.displayName
+              ? this.authService.userData.displayName
+              : "User"
+          }}</strong>
+        </h1>
+        <p>
+          User ID: <strong>{{ this.authService.userData.uid }}</strong>
+        </p>
+        <p>
+          Email: <strong>{{ this.authService.userData.email }}</strong>
+        </p>
+        <p>
+          Email Verified:
+          <strong>{{ this.authService.userData.emailVerified }}</strong>
+        </p>
+      </div>
+      <button (click)="getProforma()" type="button" class="button-style">
+        Generate History
+      </button>
+      <section id="displayStoredProformas"></section>
+    </main>
+  </div>
+</div>

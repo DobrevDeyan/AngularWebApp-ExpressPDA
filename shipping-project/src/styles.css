@@ -11,8 +11,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 html {
-  background: #e63945;
-  /* background: rgba(139, 107, 44, 0.755); */
+  background: rgb(75, 76, 75);
   height: 100%;
   font-family: "Open Sans", sans-serif;
   font-size: 18px;
@@ -37,10 +36,14 @@ body {
 .container {
   margin: 0 auto;
   position: relative;
-  max-width: 1360px;
+  max-width: 1280px;
   padding: 0 20px;
 }
 
 .content {
   flex: 1 0 auto;
+}
+
+h1 {
+  font-size: 3em;
 }

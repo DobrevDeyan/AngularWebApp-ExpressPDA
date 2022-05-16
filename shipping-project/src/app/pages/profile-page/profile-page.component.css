@@ -1,0 +1,40 @@
+/* .profile-wrapper {
+  padding: 150px 0;
+} */
+
+img {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+section a {
+  cursor: pointer;
+  background-color: red;
+}
+
+button {
+  cursor: pointer;
+  font-size: 30px;
+}
+
+p {
+  color: #fff;
+}
+
+.button-style {
+  margin-top: 20px;
+}
+
+#displayStoredProformas {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  color: white;
+  text-align: left;
+  line-height: 1.5em;
+  margin-bottom: 100px;
+}
+
+#displayStoredProformas > ul:nth-child(1) > li:nth-child(1) {
+  margin-right: 20px;
+}

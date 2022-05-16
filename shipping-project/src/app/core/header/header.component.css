@@ -26,7 +26,8 @@ ul li {
   text-transform: uppercase;
 }
 ul li:hover {
-  background: #aa1f29;
+  /* background: #aa1f29; */
+  background: #201f1f;
   border-radius: 8px;
 }
 
@@ -175,7 +176,7 @@ ul li a {
     transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-@media only screen and (max-width: 1260px) {
+@media only screen and (max-width: 960px) {
   .top-nav ul {
     display: none;
     animation: fadeIn linear 1s;
@@ -186,7 +187,7 @@ ul li a {
   }
 }
 
-@media only screen and (max-width: 1260px) {
+@media only screen and (max-width: 960px) {
   .logo-wrapper {
     flex-grow: 1;
   }

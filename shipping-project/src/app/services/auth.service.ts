@@ -7,6 +7,7 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+import { sendEmailVerification } from 'firebase/auth';
 
 @Injectable({
   providedIn: 'root',
@@ -37,12 +38,14 @@ export class AuthService {
         email,
         password
       );
+
+      // nav to profile: old
       this.ngZone.run(() => {
-        this.router.navigate(['profile']);
+        this.router.navigate(['/profile']);
       });
       this.SetUserData(result.user);
     } catch (error) {
-      window.alert(error.message);
+      window.alert('Please enter valid credentials');
     }
   }
   async SignUp(email: string, password: string) {
@@ -56,14 +59,32 @@ export class AuthService {
       window.alert(error.message);
     }
   }
+  async SendVerificationMail() {
+    return this.afAuth.currentUser
+      .then((u: any) => u.sendEmailVerification())
+      .then(() => {
+        this.router.navigate(['verify-email-address']);
+      });
+  }
+  ForgotPassword(passwordResetEmail: string) {
+    return this.afAuth
+      .sendPasswordResetEmail(passwordResetEmail)
+      .then(() => {
+        window.alert('Password reset email sent, check your inbox.');
+      })
+      .catch((error) => {
+        window.alert(error);
+      });
+  }
+  // Returns true when user is looged in and email is verified / && user.emailVerified !== false ? true : false;
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
-    return user !== null;
+    return user !== null && user.emailVerified !== false ? true : false;
   }
   GoogleAuth() {
     return this.AuthLogin(new auth.GoogleAuthProvider()).then((res: any) => {
       if (res) {
-        this.router.navigate(['profile']);
+        this.router.navigate(['/profile']);
       }
     });
   }
@@ -73,7 +94,7 @@ export class AuthService {
       .signInWithPopup(provider)
       .then((result) => {
         this.ngZone.run(() => {
-          this.router.navigate(['profile']);
+          this.router.navigate(['/profile']);
         });
         this.SetUserData(result.user);
       })
@@ -87,7 +108,6 @@ export class AuthService {
     );
     const userData: User = {
       uid: user.uid,
-      // username: user.userName,
       email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL,
@@ -100,7 +120,7 @@ export class AuthService {
   SignOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['welcome']);
+      this.router.navigate(['home']);
     });
   }
 }

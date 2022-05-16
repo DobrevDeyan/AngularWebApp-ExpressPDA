@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { CalculatorComponent } from './features/calculator/calculator.component';
-import { LoginFormComponent } from './authentication/login-form/login-form.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { CoreModule } from './core/core.module';
 import { FeaturesModule } from './features/features.module';
@@ -23,14 +22,21 @@ import { RouterModule } from '@angular/router';
 import { ExportUserProformasService } from './services/export-user-proformas.service';
 import { FormsModule } from '@angular/forms';
 import { ImportUserProformasService } from './services/import-user-proformas.service';
+import { SignInComponent } from './authentication/sign-in/sign-in.component';
+import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
+import { SignUpComponent } from './authentication/sign-up/sign-up.component';
+import { VerifyEmailComponent } from './authentication/verify-email/verify-email.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CalculatorComponent,
-    LoginFormComponent,
     ContactsComponent,
     HomeComponent,
+    SignInComponent,
+    SignUpComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent,
   ],
   imports: [
     BrowserModule,

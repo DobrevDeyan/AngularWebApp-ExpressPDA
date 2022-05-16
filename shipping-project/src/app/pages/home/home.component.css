@@ -1,10 +1,9 @@
 h1 {
-  font-size: 32px;
-  text-transform: uppercase;
-  letter-spacing: -2px;
+  /* text-transform: uppercase; */
+  /* letter-spacing: -2px; */
   /* font-family: "Poppins", sans-serif; */
-  font-family: "Roboto Slab", serif;
-  font-weight: 900;
+  /* font-family: "Roboto Slab", serif; */
+  /* font-weight: 900; */
   border-bottom: 1px solid white;
   display: inline-block;
   line-height: 1.1;
@@ -12,16 +11,16 @@ h1 {
 h2 {
   font-size: 20px;
   /* font-family: "Poppins", sans-serif; */
-  font-family: "Roboto Slab", serif;
+  /* font-family: "Roboto Slab", serif; */
   line-height: 1.1;
   margin-bottom: 50px;
 }
 
 /* CAROUSEL  */
 
-.carousel-wrapper {
-  /* padding: 150px 0; */
-}
+/* .carousel-wrapper {
+  padding: 150px 0;
+} */
 
 .carousel-container {
   position: relative;
