@@ -1,4 +1,6 @@
 {
   "angular.enable-strict-mode-prompt": false,
-  "cSpell.words": ["angularfire"]
+  "cSpell.words": [
+    "angularfire"
+  ]
 }

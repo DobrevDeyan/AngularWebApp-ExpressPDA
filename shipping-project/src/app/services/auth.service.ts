@@ -32,14 +32,29 @@ export class AuthService {
       }
     });
   }
+  // SignIn(email: string, password: string) {
+  //   return this.afAuth
+  //     .signInWithEmailAndPassword(email, password)
+  //     .then((result) => {
+  //       this.ngZone.run(() => {
+  //         this.router.navigate(['profile']);
+  //       });
+  //       this.SetUserData(result.user);
+  //     })
+  //     .catch((error) => {
+  //       window.alert(error.message);
+  //     });
+  // }
+
   SignIn(email: string, password: string) {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
-        this.ngZone.run(() => {
-          this.router.navigate(['profile']);
+        this.SetUserData(result.user).then(() => {
+          this.ngZone.run(() => {
+            this.router.navigate(['profile']);
+          });
         });
-        this.SetUserData(result.user);
       })
       .catch((error) => {
         window.alert(error.message);
@@ -92,10 +107,13 @@ export class AuthService {
     return this.afAuth
       .signInWithPopup(provider)
       .then((result) => {
-        this.ngZone.run(() => {
-          this.router.navigate(['profile']);
+        this.SetUserData(result.user).then(() => {
+          this.ngZone.run(() => {
+            this.router.navigate(['profile']);
+          });
         });
-        this.SetUserData(result.user);
+
+        // this.SetUserData(result.user);
       })
       .catch((error) => {
         window.alert(error);
