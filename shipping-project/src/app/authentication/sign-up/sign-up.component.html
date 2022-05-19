@@ -1,49 +1,5 @@
 <div class="container">
-  <!--  -->
-</div>
-
-<div class="form signupForm">
-  <form>
-    <h3>Sign Up</h3>
-    <input
-      type="email"
-      class="formControl"
-      placeholder="Email Address"
-      #userEmail
-      required
-    />
-    <input
-      type="userName"
-      class="formControl"
-      placeholder="User Name"
-      #userName
-      required
-    />
-    <input
-      type="password"
-      class="formControl"
-      placeholder="Password"
-      #userPwd
-      required
-    />
-    <input type="password" placeholder="Confirm Password" required />
-    <input
-      type="button"
-      class="btn btnPrimary"
-      value="Sign Up"
-      (click)="authService.SignUp(userEmail.value, userPwd.value)"
-      routerLink="/verify-email-address"
-    />
-    <button
-      type="button"
-      class="btn googleBtn"
-      (click)="authService.GoogleAuth()"
-    >
-      <i class="fab fa-google-plus-g"></i>
-      Continue with Google
-    </button>
-  </form>
-  <!-- <div class="authBlock">
+  <div class="authBlock">
     <h1>Sign Up</h1>
     <div class="formGroup">
       <input
@@ -91,5 +47,49 @@
       >Already have an account?
       <span class="redirect" routerLink="/sign-in">Log In</span></span
     >
-  </div> -->
+  </div>
 </div>
+
+<!-- <div class="form signupForm"> -->
+<!-- <form>
+    <h3>Sign Up</h3>
+    <input
+      type="email"
+      class="formControl"
+      placeholder="Email Address"
+      #userEmail
+      required
+    />
+    <input
+      type="userName"
+      class="formControl"
+      placeholder="User Name"
+      #userName
+      required
+    />
+    <input
+      type="password"
+      class="formControl"
+      placeholder="Password"
+      #userPwd
+      required
+    />
+    <input type="password" placeholder="Confirm Password" required />
+    <input
+      type="button"
+      class="btn btnPrimary"
+      value="Sign Up"
+      (click)="authService.SignUp(userEmail.value, userPwd.value)"
+      routerLink="/verify-email-address"
+    />
+    <button
+      type="button"
+      class="btn googleBtn"
+      (click)="authService.GoogleAuth()"
+    >
+      <i class="fab fa-google-plus-g"></i>
+      Continue with Google
+    </button>
+  </form> -->
+
+<!-- </div> -->

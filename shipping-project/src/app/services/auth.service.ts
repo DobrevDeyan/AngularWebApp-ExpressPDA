@@ -32,34 +32,33 @@ export class AuthService {
       }
     });
   }
-  async SignIn(email: string, password: string) {
-    try {
-      const result = await this.afAuth.signInWithEmailAndPassword(
-        email,
-        password
-      );
-
-      // nav to profile: old
-      this.ngZone.run(() => {
-        this.router.navigate(['/profile']);
+  SignIn(email: string, password: string) {
+    return this.afAuth
+      .signInWithEmailAndPassword(email, password)
+      .then((result) => {
+        this.ngZone.run(() => {
+          this.router.navigate(['profile']);
+        });
+        this.SetUserData(result.user);
+      })
+      .catch((error) => {
+        window.alert(error.message);
       });
-      this.SetUserData(result.user);
-    } catch (error) {
-      window.alert('Please enter valid credentials');
-    }
   }
-  async SignUp(email: string, password: string) {
-    try {
-      const result = await this.afAuth.createUserWithEmailAndPassword(
-        email,
-        password
-      );
-      this.SetUserData(result.user);
-    } catch (error) {
-      window.alert(error.message);
-    }
+  SignUp(email: string, password: string) {
+    return this.afAuth
+      .createUserWithEmailAndPassword(email, password)
+      .then((result) => {
+        /* Call the SendVerificaitonMail() function when new user sign 
+        up and returns promise */
+        this.SendVerificationMail();
+        this.SetUserData(result.user);
+      })
+      .catch((error) => {
+        window.alert(error.message);
+      });
   }
-  async SendVerificationMail() {
+  SendVerificationMail() {
     return this.afAuth.currentUser
       .then((u: any) => u.sendEmailVerification())
       .then(() => {
@@ -76,7 +75,7 @@ export class AuthService {
         window.alert(error);
       });
   }
-  // Returns true when user is looged in and email is verified / && user.emailVerified !== false ? true : false;
+  // Returns true when user is logged in and email is verified / && user.emailVerified !== false ? true : false;
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
     return user !== null && user.emailVerified !== false ? true : false;
@@ -84,7 +83,7 @@ export class AuthService {
   GoogleAuth() {
     return this.AuthLogin(new auth.GoogleAuthProvider()).then((res: any) => {
       if (res) {
-        this.router.navigate(['/profile']);
+        this.router.navigate(['profile']);
       }
     });
   }
@@ -94,7 +93,7 @@ export class AuthService {
       .signInWithPopup(provider)
       .then((result) => {
         this.ngZone.run(() => {
-          this.router.navigate(['/profile']);
+          this.router.navigate(['profile']);
         });
         this.SetUserData(result.user);
       })

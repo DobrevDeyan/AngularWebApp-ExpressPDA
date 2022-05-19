@@ -51,7 +51,6 @@
         </li>
         <li *ngIf="isLoggedIn">
           <a routerLink="/profile">{{ this.authService.userData.email }}</a>
-          <!-- <a routerLink="/profile">User</a> -->
         </li>
         <li *ngIf="isLoggedIn">
           <a (click)="authService.SignOut()">Log out</a>

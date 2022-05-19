@@ -1,25 +1,13 @@
 <div class="container">
   <h3>Sign In</h3>
-  <div class="formGroup">
-    <input
-      type="text"
-      class="formControl"
-      placeholder="Username"
-      #userName
-      required
-    />
+  <div>
+    <input type="text" placeholder="Username" #userName required />
   </div>
-  <div class="formGroup">
-    <input
-      type="password"
-      class="formControl"
-      placeholder="Password"
-      #userPassword
-      required
-    />
+  <div>
+    <input type="password" placeholder="Password" #userPassword required />
   </div>
   <!-- Calling SignIn Api from AuthService -->
-  <div class="formGroup">
+  <div>
     <input
       type="button"
       class="btn btnPrimary"
@@ -27,11 +15,11 @@
       (click)="authService.SignIn(userName.value, userPassword.value)"
     />
   </div>
-  <div class="formGroup">
+  <div>
     <span class="or"><span class="orInner">Or</span></span>
   </div>
   <!-- Calling GoogleAuth Api from AuthService -->
-  <div class="formGroup">
+  <div>
     <button
       type="button"
       class="btn googleBtn"

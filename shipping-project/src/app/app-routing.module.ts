@@ -52,6 +52,11 @@ const routes: Routes = [
     data: { animation: 'isRight' },
   },
   {
+    path: 'login',
+    component: LoginFormComponent,
+    data: { animation: 'isRight' },
+  },
+  {
     path: 'register-user',
     component: SignUpComponent,
     data: { animation: 'isLeft' },
