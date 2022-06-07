@@ -9,12 +9,16 @@ import {
   where,
 } from 'firebase/firestore';
 import { AuthService } from '../services/auth.service';
+import { DeleteProformaEntryService } from './delete-proforma-entry.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ImportUserProformasService {
-  constructor(public authService: AuthService) {
+  constructor(
+    public authService: AuthService,
+    public deletePda: DeleteProformaEntryService
+  ) {
     this.authService = authService;
   }
 
@@ -32,6 +36,7 @@ export class ImportUserProformasService {
     });
 
     function renderProformas(doc) {
+      //Imports users DB proforma entries within the DOM
       let ul = document.createElement('ul');
       let type = document.createElement('li');
       let tonnage = document.createElement('li');
@@ -39,7 +44,9 @@ export class ImportUserProformasService {
       let length = document.createElement('li');
       let operations = document.createElement('li');
       let state = document.createElement('li');
-      // let deleteProformaButton = document.createElement('');
+      let deleteButton = document.createElement('button');
+      deleteButton.textContent = 'Delete';
+      deleteButton.classList.add('remove-proforma');
 
       ul.style.border = '2px solid white';
       ul.style.borderRadius = '10px';
@@ -72,11 +79,23 @@ export class ImportUserProformasService {
       ul.appendChild(hours);
 
       storedProformas.appendChild(ul);
-    }
+      ul.appendChild(deleteButton);
 
-    const hideButton = document.querySelector('.button-style');
-    (hideButton as HTMLElement).style.display = 'none';
-    // const hidePara = document.querySelector('.para'); Element removed currently
-    // (hidePara as HTMLElement).style.display = 'none';
+      // deleteButton.onclick = function () {
+      //   let confirmation = window.confirm(
+      //     'Are you sure you want to delete this proforma ?'
+      //   );
+      //   if (confirmation) {
+      //     alert('Entry successfully deleted.');
+
+      //   } else {
+      //     alert('Entry will not be deleted.');
+      //   }
+      // };
+
+      // deleteButton.onclick = () => {
+      //   deleteProforma();
+      // };
+    }
   }
 }
