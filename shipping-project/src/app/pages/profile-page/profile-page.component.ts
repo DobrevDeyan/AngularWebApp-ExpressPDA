@@ -13,12 +13,29 @@ export class ProfilePageComponent implements OnInit {
     public authService: AuthService
   ) {}
 
-  proformas = [];
+  // proformas = [];
 
   ngOnInit(): void {}
 
-  getProforma() {
+  getProformas() {
     this.importProforma.getProformas();
   }
+
+  closeProformaList() {
+    //Removes the imported from DB proforma entries from the DOM
+    const storedProformas = document.querySelector('#displayStoredProformas');
+    storedProformas.innerHTML = '';
+  }
+
+  toggleProformaHistory: boolean = false;
+
+  doToggle(): void {
+    //Hide/Unhide users proformas
+    this.toggleProformaHistory = !this.toggleProformaHistory;
+    if (this.toggleProformaHistory) {
+      this.getProformas();
+    } else {
+      this.closeProformaList();
+    }
+  }
 }
-   

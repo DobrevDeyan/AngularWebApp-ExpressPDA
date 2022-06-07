@@ -30,9 +30,10 @@
           <strong>{{ this.authService.userData.emailVerified }}</strong>
         </p>
       </div>
-      <button (click)="getProforma()" type="button" class="button-style">
-        Generate History
+      <button (click)="doToggle()" type="button" class="button">
+        {{ toggleProformaHistory ? "Close history" : "View history" }}
       </button>
+
       <section id="displayStoredProformas"></section>
     </main>
   </div>
