@@ -7,18 +7,17 @@ import {
   collection,
   query,
   where,
+  updateDoc,
+  deleteField,
+  deleteDoc,
 } from 'firebase/firestore';
 import { AuthService } from '../services/auth.service';
-import { DeleteProformaEntryService } from './delete-proforma-entry.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ImportUserProformasService {
-  constructor(
-    public authService: AuthService,
-    public deletePda: DeleteProformaEntryService
-  ) {
+  constructor(public authService: AuthService) {
     this.authService = authService;
   }
 
@@ -32,6 +31,10 @@ export class ImportUserProformasService {
 
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
+      const q = query(
+        collection(db, 'proformas'),
+        where('uid', '==', this.authService.userData.uid)
+      );
       renderProformas(doc);
     });
 
@@ -81,21 +84,48 @@ export class ImportUserProformasService {
       storedProformas.appendChild(ul);
       ul.appendChild(deleteButton);
 
-      // deleteButton.onclick = function () {
-      //   let confirmation = window.confirm(
-      //     'Are you sure you want to delete this proforma ?'
-      //   );
-      //   if (confirmation) {
-      //     alert('Entry successfully deleted.');
-
-      //   } else {
-      //     alert('Entry will not be deleted.');
-      //   }
-      // };
-
-      // deleteButton.onclick = () => {
-      //   deleteProforma();
-      // };
+      deleteButton.onclick = function () {};
+      // let confirmation = window.confirm('Delete Proforma entry ?');
+      // if (confirmation) {
+      // alert('Entry successfully deleted.');
+      // } else {
+      // alert('Entry will not be deleted.');
+      // }
     }
   }
 }
+
+// document.addEventListener('click', async (e) => {
+//   if (e.classList.contains('proforma-delete')) {
+//     let proformaIdToDelete = e.target.dataset.proformaId
+//     // Deletes a proforma from the DB with ID = proformaIdToDelete
+//     await deleteProforma(proformaIdToDelete)
+//     // Fetch the new list from DB and print it
+//     // DONT MANUALLY DELETE DOM NODES
+//     renderList()
+//   }
+// })
+
+//Delete individual proforma entry: removing it from the DOM; removing it from DB
+// let db = getFirestore();
+// const storedProformas = document.querySelector('#displayStoredProformas');
+// const q = query(
+//   collection(db, 'proformas'),
+//   where('uid', '==', this.authService.userData.uid)
+// );
+// const querySnapshot = await getDocs(q);
+// querySnapshot.forEach((doc) => {
+//   // console.log(doc);
+// });
+
+// await deleteDoc(doc(db, 'cities', 'DC'));
+
+//   await deleteDoc(doc(db, 'proformas', hashedDocName), {
+//     vesselType: options.vesselType,
+//     operations: options.operations,
+//     specialState: options.specialState,
+//     grossTonnage: options.grossTonnage,
+//     lengthOverall: options.lengthOverall,
+//     hoursAtBerth: options.hoursAtBerth,
+//     uid: this.authService.userData.uid,
+//   });
