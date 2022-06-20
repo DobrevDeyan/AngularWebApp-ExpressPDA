@@ -1,4 +1,4 @@
-# SoftUniAngularProject
+# SoftUniAngularProject - Under development !!!
 Angular Project made during SoftUni's Angular course ( March - April 2022 )
 
 # PORT VARNA PDA CALCULATOR
